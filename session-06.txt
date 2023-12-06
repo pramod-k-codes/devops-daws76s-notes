@@ -117,3 +117,22 @@ outbound --> outbound --> traffic originates from our server
 
 
 
+--pramod notes 
+
+55:36 we created a prate web server with user 
+and pubic web server which is front FrontEnd
+
+to connect with a webserver in same network we can use telnet
+
+
+Summary
+
+create 2 instances
+    .frontend Server which allows all traffic  
+        frontend SG all traffic inbound ports 22 ,80
+        this has nginx and telnet installed to connect with user server by using private ip address
+
+    user server which allow Frontend SG with port 80 and port 22 for your ip address
+        this will have nginx server installed 
+
+
