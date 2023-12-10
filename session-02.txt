@@ -29,6 +29,8 @@ ls -lt --> latest files are on the top
 ls -ltr --> old files are on the top
 ls -la --> list all files and folders including hidden
 
+12:40
+
 CRUD
 --------------------
 create
