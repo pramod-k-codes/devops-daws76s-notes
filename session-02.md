@@ -1,19 +1,24 @@
+# Session 2
+
 Recap
-----------
+-----
+
 Client Server
 EC2 instance launch
-	key pair generate
-	ssh-keygen -f <file-name>
-	public key imported to AWS
-	security group created in AWS, allow-all
+ key pair generate
+ ssh-keygen -f <file-name>
+ public key imported to AWS
+ security group created in AWS, allow-all
 command-name <options> <inputs>
 $ --> normal user
+
 # --> root user
+
 command-name --help or man command-name
 
 ls --> list subdirectories
 
-/home/ec2-user 
+/home/ec2-user
 
 cd --> change directory
 / --> root directory
@@ -22,6 +27,7 @@ ls
 ls -l -->lengthy format in alphabetic order
 drwxr-xr-x  15 root root 2900 Nov 28 01:53 dev
 d --> directory
+
 - --> file
 cd .. --> one step back
 ls -lr --> reverse alphabetic order
@@ -33,6 +39,7 @@ ls -la --> list all files and folders including hidden
 
 CRUD
 --------------------
+
 create
 read
 update
@@ -40,11 +47,13 @@ delete
 
 file create
 ------------
+
 touch --> creates an empty file
 mkdir --> make directory
 
 update file with content
 -----------------------
+
 cat > <file-name> --> file will open
 enter the content
 enter and ctrl+d
@@ -54,30 +63,33 @@ enter and ctrl+d
 
 reading file
 -----------------------
+
 cat file-name
 
 remove file and folder
 ----------------------
-rm <file-name> 
+
+rm <file-name>
 rmdir <folder-name> --> removes empty directory
 rm -r devops --> recursive --> go inside every folder and delete everything
 
-
 copy
 ----------------------
+
 cp <source> <destination>
 cp -r --> recursive
 
 cut
 ----------------------
+
 mv --> move
 with in the same folder if you use mv command, it works as rename
 
 mv sivakumar sivakumar-1 --> this will rename the file from sivakumar sivakumar-1
 
-
 grep command
 ----------------
+
 grep <word-to-find> <file-name>
 
 Linux is by default case sensitive
@@ -87,19 +99,20 @@ Devops and DEVOPS are different
 
 wget vs curl
 ---------------
-https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/Git-2.43.0-64-bit.exe
+<https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/Git-2.43.0-64-bit.exe>
 
 wget --> download files
 curl --> downloads the text content directly on to terminal
 
 cut and awk
 --------------
-https://github.com/daws-76s/notes/blob/master/session-01.txt
+<https://github.com/daws-76s/notes/blob/master/session-01.txt>
 
 delimiter --> we get fragments
 :
 /
 ---
+
 https:
 
 github.com
@@ -109,6 +122,7 @@ cut -d / -f 1
 
 awk
 ------
+
 awk -F / '{print $1F}'
 awk -F / '{print $NF}' --> last fragment
 
@@ -129,12 +143,14 @@ tail <file-name< --> last 10 lines
 
 Editors
 -------------
+
 vim --> visually improved
 
 vim <file-name>
 
 colon/command mode
 ------------------
+
 :/<word-to-search> --> search from top
 :?<word-to-search> --> search from bottom
 
@@ -143,6 +159,7 @@ sudo chown ec2-user:ec2-user sshd_config
 
 replace the content/word
 -----------------------
+
 :s/<word-to-find>/<word-to-replace> --> replace the word where your cursor is, this will replace only first occurence in that line
 
 :2s/<word-to-find>/<word-to-replace>
@@ -150,6 +167,7 @@ replace the content/word
 
 SDLC
 ------
+
 Requirements
 Design
 Develop
@@ -161,9 +179,8 @@ Maintain
 
 head 7 | tail 3
 
-ssh-keygen -f 
+ssh-keygen -f
 
 :wq!
 
 dd
-
