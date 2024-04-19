@@ -23,12 +23,12 @@ https://facebook.com
 
 ssh -i <private-key> ec2-user@IP
 
-ssh port no - 22
+ssh  - 22
 http: 80
 https: 443
 mysql: 3306
 SMTP: 25
-FTP:
+FTP: 21
 
 
 

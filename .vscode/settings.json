@@ -1,11 +1,14 @@
 {
     "CodeGPT.apiKey": "CodeGPT Plus Beta",
     "cSpell.words": [
+        "filesystems",
         "hlsearch",
+        "hostnames",
         "ignorecase",
         "nohl",
         "nohlsearch",
         "noignorecase",
-        "qall"
+        "qall",
+        "Tirumala"
     ]
 }
