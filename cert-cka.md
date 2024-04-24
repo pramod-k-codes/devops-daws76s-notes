@@ -70,6 +70,6 @@ Important Terms & Topics:
 58. Ingress & Egress
 59. Cluster Upgrade
 60. Draining Master & Worker Node
-61. Cordon & Uncordon nodes
+61. Cordon & Un cordon nodes
 62. Troubleshooting (App Failure, Control Place Failure, Work Node Failure)
 63. Context (edited) 
