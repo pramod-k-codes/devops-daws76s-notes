@@ -49,13 +49,13 @@ server --> install application and serve users/clients
 
 ### client server architecture  
 
-![client server architecture](images/1-client-Server-Arch.png)  
+![client server architecture](image/1-client-Server-Arch.png)  
 
 The ones who provides response is server, server serves the needs for any request, Clients changes and more in count than servers, Servers are few in than clients  
 
 server --> mobile  
 client --> laptop
-mobile --> files/images
+mobile --> files/image/
 
 17:13 IT --> communication between clients and server
 ----------------------------------------------
@@ -151,7 +151,7 @@ Kernel --> connecting to Hardware --> no utilities, no shell
  created Linux kernel
  Do watch [The mind behind linux](https://www.youtube.com/watch?v=o8NPllzkFhE)
 
- ![linux head quarters](images/1-linuxHeadquarters.png)
+ ![linux head quarters](image/1-linuxHeadquarters.png)
 Unix --> very costly, tightly coupled to hardware
 Laptop --> IBM Dos
 Linux Kernel --> based on unix principles but code is from the scratch --> C Language
