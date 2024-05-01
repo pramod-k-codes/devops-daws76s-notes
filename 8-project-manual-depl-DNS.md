@@ -1,4 +1,31 @@
 # Session 8 - manual deployment of roboshop server
+- [Session 8 - manual deployment of roboshop server](#session-8---manual-deployment-of-roboshop-server)
+  - [00:00 - Recap](#0000---recap)
+  - [02:48 - Web](#0248---web)
+    - [04:00 catalogue -t2.micro](#0400-catalogue--t2micro)
+  - [04:52 config of web instance](#0452-config-of-web-instance)
+  - [07:58 - DNS - Domain name system](#0758---dns---domain-name-system)
+  - [The DNS System Explained: Journey to Facebook.com](#the-dns-system-explained-journey-to-facebookcom)
+  - [15:01 TLD](#1501-tld)
+  - [20:56 - Domain Registrars](#2056---domain-registrars)
+  - [Domain Registrars: The Gatekeepers of Your Online Identity](#domain-registrars-the-gatekeepers-of-your-online-identity)
+  - [21:07 - Domain Purchase](#2107---domain-purchase)
+  - [30:08 - Name servers Transferring](#3008---name-servers-transferring)
+  - [34:10 - Record Creation R53](#3410---record-creation-r53)
+  - [break](#break)
+  - [41:40 - Configuring Services by using DNS](#4140---configuring-services-by-using-dns)
+    - [44:00 - configuration of mongo db](#4400---configuration-of-mongo-db)
+    - [46:00 -  configuration of catlogue](#4600----configuration-of-catlogue)
+    - [49:22 creating a record for mongodb in hostedzone](#4922-creating-a-record-for-mongodb-in-hostedzone)
+    - [50:24 mongodb client software installation to load data](#5024-mongodb-client-software-installation-to-load-data)
+    - [51:00 - configuration of mongodb](#5100---configuration-of-mongodb)
+    - [52:00 checking logs](#5200-checking-logs)
+    - [54:19 updating reverse proxy](#5419-updating-reverse-proxy)
+    - [56:00 errors- general](#5600-errors--general)
+  - [59:46 - Redis](#5946---redis)
+  - [01:02:00 - Assignment](#010200---assignment)
+  - [01:03:48 - Student Doubts](#010348---student-doubts)
+
 ## 00:00 - Recap
 ## 02:48 - Web
 ---
@@ -166,24 +193,55 @@ start and enable catalgoure and check logs by tail command
 
 ![checking logs by tail command](image/8-check-catalog-logs-by-tail-command.png)
 
-### 51:00 - configuration of redis
+### 51:00 - configuration of mongodb
 create and start service
 create record in catalogue
 check catalogue to redis by nslookup redis.joindevops.online
 Redis record creation
-![Redis record](image/8-catalogue-nslookcup-redis-record.png)
+![Redis record](image/8-catalogue-nslookcup-mongodb-record.png)
     `tail -f /var/log/messages`
 
-## 52:00 checking logs
-checking logs using less command - shift+g to go to end of file
+### 52:00 checking logs
+checking logs using less command - 
+    shift+g to go to end of file
+    gg - go up
+    q -quit
 ![checking logs using less command](image/8-checking-logs-using-less-command.png)
 
-![alt text](image/8-checking-logs-using-less-command.png)
+### 54:19 updating reverse proxy
+    update the record in catalogue
+    restart the web server (frontend reverse proxy server)
+
+### 56:00 errors- general
+- data loading
+- restarting
+- 
+**check last part of video 50:00 to 59:00 to understand the backend debugging**
+    
 ## 59:46 - Redis
---
+redis is a cache server
+to check the user while login  we will use redis to speedup the process
+
+Imagine you visit your favorite website.  There are lots of images, text, and formatting that needs to be loaded to show you the entire page. A cache acts like a personal assistant for your device, remembering this information so you don't have to download it all again every time you visit the same site.
+
+Here's why a cache is important:
+
+* **Speeds things up:**  By storing frequently accessed data, the cache can significantly improve loading times for websites and apps.  Instead of waiting to download everything again, your device can just grab it from the cache, which is much faster.
+* **Reduces workload:**  Especially for websites with a lot of content, constantly downloading everything would use up a lot of internet bandwidth.  The cache helps by reusing data, which is easier on your internet connection.
+
+In short, a cache is like a mini storage unit on your device that holds onto frequently used information to make things faster and smoother.
+
+
 
 ## 01:02:00 - Assignment
---
+
+related links   
+[Cache Systems Every Developer Should Know](https://www.youtube.com/watch?v=dGAgxozNWFE)
+
+[Caching Pitfalls Every Developer Should Know](https://www.youtube.com/watch?v=wh98s0XhMmQ)
+
+[Top 7 Ways to 10x Your API Performance](https://www.youtube.com/watch?v=zvWKqUiovAM)
 
 ## 01:03:48 - Student Doubts
 --
+
