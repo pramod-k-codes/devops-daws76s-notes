@@ -59,9 +59,8 @@ check if the server is running properly using `netstat -lntp`
 
 41:00
 
-deploying or setting up env in linux
+## Deploying or setting up env in linux
 
-------------------------------------
 
 The provided text offers a helpful walkthrough on deploying an application on a Linux server. Here's a breakdown of the process incorporating those details:
 
