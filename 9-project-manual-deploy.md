@@ -52,3 +52,8 @@ check if the server is running properly using `netstat -lntp`
 
 **25:00** configure user
 28:47
+
+
+     
+
+  
