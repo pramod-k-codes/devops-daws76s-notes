@@ -17,17 +17,6 @@
 ### 3:14 instance creation 5 t2.micro 1t3.medium
 servers configuration
 ![t2.micro servers](image/9-t2.micro-servers.png)- [session-09](#session-09)
-- [session-09](#session-09)
-  - [configuration of all servers](#configuration-of-all-servers)
-    - [1:23 possibility of errors](#123-possibility-of-errors)
-    - [3:14 instance creation 5 t2.micro 1t3.medium](#314-instance-creation-5-t2micro-1t3medium)
-    - [servers required](#servers-required)
-    - [5:40 Configuration of the servers](#540-configuration-of-the-servers)
-    - [13:17 loading products into db](#1317-loading-products-into-db)
-    - [18:10 cart user redis config](#1810-cart-user-redis-config)
-    - [18:40 redis config](#1840-redis-config)
-  - [Deploying or setting up env in linux](#deploying-or-setting-up-env-in-linux)
-
 
 ### servers required 
 ![servers required screen](image/9-all-servers-config.png)
