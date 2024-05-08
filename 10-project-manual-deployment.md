@@ -1,6 +1,15 @@
 # session-10
 [Session 10](https://www.youtube.com/watch?v=XQ15cL16R8Q&list=PL1jY4BuFJn1efO4Sv57kuxMBLt1ThyyUv&index=12)
 
+- [session-10](#session-10)
+	- [01:00	recap](#0100recap)
+	- [02:00](#0200)
+	- [01:00 servers creation](#0100-servers-creation)
+	- [09:00 config of all servers](#0900-config-of-all-servers)
+	- [57:00 what is a queue](#5700-what-is-a-queue)
+	- [01:00:00 asynchronous](#010000-asynchronous)
+		- [what is rabbitmq and explain realworld usecase scenarios for retail system like wallmart or kroger in supply chain and instore operations like stocking inventory etc](#what-is-rabbitmq-and-explain-realworld-usecase-scenarios-for-retail-system-like-wallmart-or-kroger-in-supply-chain-and-instore-operations-like-stocking-inventory-etc)
+	- [RabbitMQ: The Speedy Delivery Rabbit for Your Retail Operations](#rabbitmq-the-speedy-delivery-rabbit-for-your-retail-operations)
 
 ## 01:00	recap
 why Rdbms are heavy applications and why do we need **t3.medium**
