@@ -25,9 +25,11 @@ troubleshooting
 who did the mistakes
 repeated work
 
+for example in old days wood logs are manually cut down
 take 1 by 1 from the farm to house 
 
-through lorry --> learning curve, we need to learn driving
+now 
+through lorry --> learning curve, we need to learn driving for devops also we need to use scripting to avoid manual
 
 coding --> learn scripting
 ---------------
@@ -75,7 +77,7 @@ shell scripting
 --------------------------
 where to keep the scripts???
 
-10 devops engineers
+10 devops engineers working on same project
 --------------------
 one central location to do and share the things
 
