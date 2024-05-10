@@ -1,3 +1,6 @@
+# 11 Why manual deployment is painful , Algorithmic thinking , And importance of git, and configuration of GIT
+
+
 Project configuration
 ----------------------
 create a server
@@ -346,5 +349,4 @@ git commit -m "as part of bug fix" --> till here local...
 setup git and configure along with vscode
 
 01:08:00 end of class
-
-questions yet to complete
+Q and A
