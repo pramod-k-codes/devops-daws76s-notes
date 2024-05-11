@@ -1,10 +1,12 @@
+## session 12 Into to shell scripting
 
+repo links
 `https://github.com/daws-76s/shell-script`
 
 till 17 min pushing to repo
 18 cloning is always done in https 
 
-### Git 19:35
+## Git 19:35
 writing code 
 
 initialising repository using git
@@ -80,11 +82,11 @@ push a git commit
 
 `git push -u origin master`
 
-### 34:30 creating a server and pushing to the server
+## 34:30 creating a server and pushing to the server
 
 use https to clone the data from git repository
 
-variables 42:38
+## variables 42:38
 
 explain the following code 
 
@@ -242,7 +244,7 @@ Bob: I am good Alice, How are you
 * **Flexibility:** By taking arguments, this script becomes more reusable. You can have conversations between any two people just by changing the arguments you pass.
 
 
-DB connections 
+## DB connections 
 
 #!/bin/bash
 
@@ -263,7 +265,97 @@ read -s USERNAME #the value entered above will not be visible
 ## 1:05:04 data types
 **there are no data types in shell**
 
+arrays in shell script
+
+#!/bin/bash
+
+FRUITS=("Apple" "Banana" "Mango")
+
+echo "First value: ${FRUITS[0]}"
+
+echo "Second value: ${FRUITS[1]}"
+
+echo "Second value: ${FRUITS[2]}"
+
+echo "All Fruits: ${FRUITS[@]}"
+
+## adding numbers
+
+![Shell scripting additon](image/12-shell-addition.png)
+
+Absolutely! Let's break down this Bash script.
+
+**Explanation**
+
+1. **Shebang (#! /bin/bash):**
+   * This is the first line and a special marker. It tells the operating system to use the Bash shell to execute the script.
+
+2. **Input Arguments:**
+   * `NUMBER1=$1`:  The script takes the first command-line argument (`$1`) and assigns it to a variable called `NUMBER1`.
+   * `NUMBER2=$2`: The script takes the second command-line argument (`$2`) and assigns it to a variable called `NUMBER2`.
+
+3. **Calculation:**
+   * `SUM=$(($NUMBER1+$NUMBER2))`: This line calculates the sum of the two numbers. Here's how it works:
+      - The double parentheses `((...))` are used for arithmetic operations in Bash.
+      - `$NUMBER1` and `$NUMBER2` are replaced with their actual values.
+      - The result of the addition is stored in the `SUM` variable.
+
+4. **Output:**
+   * `echo "Total:: $SUM"`: This line prints the result to the console.
+      - `"Total:: "` is a fixed string.
+      - `$SUM` is replaced with the calculated sum.
+
+**How to Use It**
+
+1. **Save:** Save the code as a file (e.g., `sum.sh`).
+2. **Permissions:** Make the file executable: `chmod +x sum.sh`
+3. **Run:** Execute the script, providing two numbers as arguments:
+   ```bash
+   ./sum.sh 15 20 
+   ```
+   This would output: `Total:: 35`
+
+**Key Improvements**
+
+Here's how this script could be improved for better error handling:
+
+```bash
+#!/bin/bash
+
+# Check if enough arguments are provided
+if [ $# -ne 2 ]; then
+  echo "Usage: $0 <number1> <number2>"
+  exit 1  # Exit with an error code
+fi
+
+NUMBER1=$1
+NUMBER2=$2
+
+# Check if the arguments are actually numbers
+if ! [[ $NUMBER1 =~ ^[0-9]+$ ]] || ! [[ $NUMBER2 =~ ^[0-9]+$ ]]; then
+  echo "Error: Please provide valid numbers"
+  exit 1
+fi
+
+SUM=$(($NUMBER1+$NUMBER2))
+echo "Total:: $SUM"
+```
+**Explanation of Improvements:**
+* First checks whether two arguments are provided and provides usage instructions otherwise
+* Uses regular expressions to check whether the arguments provided are integers
+
+## not this calss program
+#!/bin/bash
+
+NUMBER=$1
+
+if [ $NUMBER -gt 100 ]
+then
+   echo "Give number $NUMBER is greater than 100"
+else
+   echo "Give number $NUMBER is not greater than 100"
+fi
 
 
 
-
+end of class  1:20 08
