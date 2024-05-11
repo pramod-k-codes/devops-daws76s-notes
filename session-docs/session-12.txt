@@ -6,6 +6,29 @@
 5. create config file in .ssh, without extension
 6. keep the github config
 
+
+These are the first six steps to set up SSH keys for use with GitHub. SSH keys are used to securely connect to GitHub and authenticate without a password.
+
+Sign up for GitHub. If you don't already have a GitHub account, you'll need to create one.
+
+Generate SSH keys. You can generate SSH keys using the ssh-keygen command.
+
+Keep the public key in GitHub. Once you've generated your SSH keys, you'll need to add the public key to your GitHub account.
+
+Create a .ssh folder in the user directory. If you don't already have a .ssh folder in your user directory, you'll need to create one.
+
+Create a config file in .ssh, without extension. In the .ssh folder, you'll need to create a config file without an extension.
+
+Keep the GitHub config. In the config file, you'll need to add the following lines:
+
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa
+Once you've completed these steps, you'll be able to use SSH keys to securely connect to GitHub.
+
+git config --global user.name "your-name"
+git config --global user.email "your-email"
 /Users/<user-name>/.ssh --> Mac
 /home/<user-name>/.ssh --> ubuntu
 
