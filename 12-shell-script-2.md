@@ -1,4 +1,17 @@
 ## session 12 Into to shell scripting
+- [session 12 Into to shell scripting](#session-12-into-to-shell-scripting)
+- [Git 19:35](#git-1935)
+  - [Git 20:15](#git-2015)
+  - [Git 23:20](#git-2320)
+- [34:30 creating a server and pushing to the server](#3430-creating-a-server-and-pushing-to-the-server)
+- [variables 42:38](#variables-4238)
+- [56:00 arguments](#5600-arguments)
+- [how DB connection programs use shell script to hide password](#how-db-connection-programs-use-shell-script-to-hide-password)
+- [1:05:04 data types](#10504-data-types)
+- [arrays in shell script](#arrays-in-shell-script)
+- [adding numbers](#adding-numbers)
+- [not this calss program](#not-this-calss-program)
+
 
 repo links
 `https://github.com/daws-76s/shell-script`
@@ -244,7 +257,7 @@ Bob: I am good Alice, How are you
 * **Flexibility:** By taking arguments, this script becomes more reusable. You can have conversations between any two people just by changing the arguments you pass.
 
 
-## DB connections 
+## how DB connection programs use shell script to hide password 
 
 #!/bin/bash
 
@@ -265,7 +278,7 @@ read -s USERNAME #the value entered above will not be visible
 ## 1:05:04 data types
 **there are no data types in shell**
 
-arrays in shell script
+## arrays in shell script
 
 #!/bin/bash
 

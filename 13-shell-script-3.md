@@ -3,6 +3,10 @@
 
 **recap till 03:18**
 
+## what are coditional statements in shell script 07:38
+-----------------------------------------------
+
+
 if(expression){
 	statement if expression is true
 }
@@ -17,7 +21,6 @@ else if(expression){
 	statement if expression is true
 }
 else if(expression){
-
 }
 else{
 	statement if expression is false
@@ -34,6 +37,8 @@ else{
 if 20 is greater than 100 then print, given no is greater than 20
 otherwise print less than 100
 
+## shell script operators arihtmetic
+
 $NUMBER > 100
 
 $NUMBER -gt 100
@@ -43,6 +48,8 @@ $NUMBER -lt 100
 $NUMBER -ge 100
 
 $NUMBER -le 100
+
+## logic to install a program in shell 13:00
 
 Install MySQL through shell script
 ------------------------------
