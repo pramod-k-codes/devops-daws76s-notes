@@ -8,7 +8,7 @@
 
 
 IS_ROOT_USER(){
-    if [$EUID eq 0]
+    if [ $EUID -eq 0 ]
     then
         echo "user is root user"
     else
