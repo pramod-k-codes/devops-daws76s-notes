@@ -16,5 +16,23 @@ IS_ROOT_USER(){
         echo "user is not root user"
     fi
 }
+INSTALL_MSSQL(){
+    echo "installing mssql"
+    yum install mssql -y
+}
+VALIDATE_INSTALLATION(){
+    echo "validating installation"
+    if [ $? -eq 0 ]
+    then
+    echo "installation of package is successful"
+    else
+    echo "installation of package is not successful"
+    exit 1
+    fi
+}
 
 IS_ROOT_USER
+INSTALL_MSSQL
+VALIDATE_INSTALLATION
+# INSTALL_FIREFOX
+# VALIDATE_INSTALLATION
