@@ -77,6 +77,12 @@ steps:
 
 ### installing mysql in shell script
 ----------------------------------
+example of comment in shell script
+
+
+
+
+```bash
 #!/bin/bash
 
 ID=$(id -u)
@@ -109,6 +115,7 @@ else
     echo "Installing GIT is SUCCESS"
 fi
 
+```
 
 This script is a Bash script (denoted by `#!/bin/bash` at the beginning) designed to automate the installation of MySQL and Git packages on a Linux system. Let's break it down step by step:
 
