@@ -6,7 +6,8 @@
 
 # check if installation is successful , display log irrespective of message
 
-
+echo "checking if user is root user"
+echo $EUID
 IS_ROOT_USER(){
     if [ $EUID -eq 0 ]
     then
