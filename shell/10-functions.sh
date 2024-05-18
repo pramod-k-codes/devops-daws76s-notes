@@ -1,4 +1,5 @@
-!#/bin/bash
+# !#/bin/bash -- idi kadu ra ayya she bang rayali
+#!/bin/bash
 # read and determine if user is root user
 
 # if root user is true then install package
