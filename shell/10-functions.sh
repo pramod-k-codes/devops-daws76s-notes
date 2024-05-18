@@ -21,7 +21,7 @@ IS_ROOT_USER(){
 INSTALL_MSSQL(){
     echo "installing mssql"
     yum install mssql -y
-    echo "status of installation is $?"
+    # echo "status of installation is $?"
 }
 VALIDATE_INSTALLATION(){
     # echo "validating installation" IF YOU PUT ECHO HERE THEN ECHO IS SUCCESSFULLY EXECUTED THEN $? IS 0 ,its a bug in script
