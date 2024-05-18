@@ -12,7 +12,7 @@ IS_ROOT_USER(){
     if [ $EUID -eq 0 ]
     then
         echo "user is root user"
-        exit 0 # you give zero for success
+        # exit 0 # you give zero for success DONOT USE EXIT 0 , SCRIPT WILL TERMINATE HERE AND PASS , IT BECOMES FALSE POSITIVE
     else
         echo "user is not root user"
         exit 1 # you give other than 0 to fail

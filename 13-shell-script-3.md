@@ -332,11 +332,48 @@ This Bash script performs the following tasks:
 In summary, this script checks if it's being run with root privileges, installs MySQL and Git using `yum`, and validates the success of each installation using the `VALIDATE` function. If any installation fails, it prints an error message and exits with a non-zero exit status.
 
 
+### exit 0
 
+if you give exit 0 script will terminate at point and will be marked as success 
 
+for the same reason you negative valitaion is preferred like here
 
+![loops and functions](image/13-10-functions.png)
 
+```bash
+When you use `exit 0` within a loop in a shell script, it has a specific meaning related to the script's execution. Let's break it down:
 
+1. **Exit Codes in Bash**:
+   - Bash scripts can exit with different **exit codes** to indicate success or failure.
+   - The standard convention is as follows:
+     - **Zero (0)**: Indicates success.
+     - **Non-zero (1, 2, 3, etc.)**: Represents failure or specific error conditions¹.
+   - These exit codes help other programs understand whether your script executed successfully or encountered issues.
+
+2. **Using `exit 0`**:
+   - When you include `exit 0` in your script, you explicitly set the exit code to zero.
+   - This means that the script is exiting successfully, regardless of any other conditions or errors.
+   - For example, consider the following script snippet:
+     ```bash
+     #!/bin/bash
+     echo "Exit command test"
+     exit 0
+     ```
+     In this case, the script will always exit with a success code (0), regardless of any other logic or loops¹.
+
+3. **Handling Errors and Exit Codes**:
+   - Proper error handling is crucial for robust scripts.
+   - Instead of hoping nothing goes wrong, anticipate possible failures and decide how your program should react.
+   - Use non-zero exit codes creatively to convey specific reasons for script failure (e.g., 1 for incorrect arguments, 2 for missing files, etc.)¹.
+
+Remember, consistency and clear error handling make your scripts more reliable and user-friendly! 😊🚀
+
+Source: Conversation with Bing, 5/18/2024
+(1) Exit a Bash Script: exit 0 and exit 1 Explained - Codefather. https://codefather.tech/blog/exit-bash-script/.
+(2) Bash break: How to Exit From a Loop - phoenixNAP. https://phoenixnap.com/kb/bash-break.
+(3) What is meaning of 'exit 0' in shell script? - Stack Overflow. https://stackoverflow.com/questions/37788172/what-is-meaning-of-exit-0-in-shell-script.
+(4) shell script - Need the exit code of condition function when a Bash .... https://unix.stackexchange.com/questions/676733/need-the-exit-code-of-condition-function-when-a-bash-while-loop-terminates.
+```
 ## 43:00 logs 
 
 how can i get log of  
