@@ -36,7 +36,7 @@ VALIDATE_INSTALLATION(){
 
 INSTALL_FIREFOX(){
     echo "installing firefox"
-    yum install firefox -y
+    yum install ffirefox -y
     # echo "status of installation is $?"  IF YOU PUT ECHO HERE THEN ECHO IS SUCCESSFULLY EXECUTED THEN $? IS 0 ,its a bug in script
 }
 
