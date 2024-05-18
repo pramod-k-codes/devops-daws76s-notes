@@ -18,10 +18,10 @@ IS_ROOT_USER(){
         exit 1 # you give other than 0 to fail
     fi
 }
-INSTALL_MSSQL(){
-    echo "installing mssql"
-    yum install mssql -y
-    # echo "status of installation is $?"
+INSTALL_MYSQL(){
+    echo "installing mysql"
+    yum install mysql -y
+    # echo "status of installation is $?"  IF YOU PUT ECHO HERE THEN ECHO IS SUCCESSFULLY EXECUTED THEN $? IS 0 ,its a bug in script
 }
 VALIDATE_INSTALLATION(){
     # echo "validating installation" IF YOU PUT ECHO HERE THEN ECHO IS SUCCESSFULLY EXECUTED THEN $? IS 0 ,its a bug in script
@@ -34,8 +34,14 @@ VALIDATE_INSTALLATION(){
     fi
 }
 
+INSTALL_FIREFOX(){
+    echo "installing firefox"
+    yum install firefox -y
+    # echo "status of installation is $?"  IF YOU PUT ECHO HERE THEN ECHO IS SUCCESSFULLY EXECUTED THEN $? IS 0 ,its a bug in script
+}
+
 IS_ROOT_USER
-INSTALL_MSSQL
+INSTALL_MYSQL
 VALIDATE_INSTALLATION
-# INSTALL_FIREFOX
+INSTALL_FIREFOX
 # VALIDATE_INSTALLATION
