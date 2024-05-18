@@ -75,47 +75,46 @@ steps:
       show what is the error
 
 
-### installing mysql in shell script
-----------------------------------
+### Installing MySQL and Git packages on a Linux system using Shell Script
+
 example of comment in shell script
-
-
-
-
 ```bash
+
 #!/bin/bash
 
-ID=$(id -u)
+    ID=$(id -u)
 
-if [ $ID -ne 0 ]
-then
-    echo "ERROR:: Please run this script with root access"
-    exit 1 # you can give other than 0
-else
-    echo "You are root user"
-fi # fi means reverse of if, indicating condition end
+    if [ $ID -ne 0 ]
+    then
+        echo "ERROR:: Please run this script with root access"
+        exit 1 # you can give other than 0
+    else
+        echo "You are root user"
+    fi # fi means reverse of if, indicating condition end
 
-yum install mysql -y
+    yum install mysql -y
 
-if [ $? -ne 0 ]
-then
-    echo "ERROR:: Installing MySQL is failed"
-    exit 1
-else
-    echo "Installing MySQL is SUCCESS"
-fi
+    if [ $? -ne 0 ]
+    then
+        echo "ERROR:: Installing MySQL is failed"
+        exit 1
+    else
+        echo "Installing MySQL is SUCCESS"
+    fi
 
-yum install git -y
+    yum install git -y
 
-if [ $? -ne 0 ]
-then
-    echo "ERROR:: Installing GIT is failed"
-    exit 1
-else
-    echo "Installing GIT is SUCCESS"
-fi
-
+    if [ $? -ne 0 ]
+    then
+        echo "ERROR:: Installing GIT is failed"
+        exit 1
+    else
+        echo "Installing GIT is SUCCESS"
+    fi
 ```
+
+### Installing MySQL and Git packages on a Linux system using Shell Script
+-------------------------------------------------------------
 
 This script is a Bash script (denoted by `#!/bin/bash` at the beginning) designed to automate the installation of MySQL and Git packages on a Linux system. Let's break it down step by step:
 
@@ -246,72 +245,27 @@ fi
 
 In summary, the main difference is that `ID = id -u` is incorrect due to improper syntax, while `ID=$(id -u)` is the correct way to capture the output of the `id -u` command and assign it to a variable in a shell script.
 
-
-
-
-
-
-------------------------
-
-100 statements
-10th line --> error
-
-1. stop, clear the error and proceed
-2. dont worry about error, proceed
-
-shell script wont stop if it faces error,
-
-it is our responsibility to check and proceed
-
-
-
-EXIT status
----------------
-previous command success or not
-
-$? --> if success, it has 0
-if failure, not zero
-
-
-different exit status are listed below
-
-In Linux and Unix-like operating systems, the exit status, also known as the return code, is a value returned by a command or a program to the parent process after it has finished executing. This exit status typically indicates whether the command or program completed successfully or encountered an error.
-
-Here are some common exit status codes and their meanings:
-
-1. **0**: Success - Indicates that the command or program completed successfully without encountering any errors.
-  
-2. **1**: General error - This exit status code is often used to indicate that the command or program encountered some unspecified error.
-  
-3. **2**: Misuse of shell builtins - Indicates that there was a misuse of shell built-in commands.
-  
-4. **126**: Permission problem or command is not executable - Indicates that the command or script does not have the appropriate permissions to execute or that it is not executable.
-  
-5. **127**: Command not found - Indicates that the command was not found or could not be executed.
-  
-6. **128+n**: Fatal error signal "n" - Indicates that the command or program terminated due to receiving a fatal signal. The value of "n" is typically added to 128 to determine the exit status code.
-  
-7. **130**: Terminated by Ctrl+C - Indicates that the command or program was terminated by the user pressing Ctrl+C.
-  
-8. **255**: Exit status out of range - Indicates that the exit status code is out of the valid range (0-255).
-
-These are some of the commonly used exit status codes, but there can be variations depending on the specific command or program being executed. It's important to refer to the documentation of each command or program to understand its specific exit status codes and their meanings.
-
-
-
+# 33:02 functions  
 
 usually we have single task
 ---------------
-1. 30 lines
-2. 10 lines
+1. 30 lines does accomplishes task A
+2. 10 lines accomplishes tash A 
+so it means that task A is efficiently accomplished in line 2
 
 **less lines of code is preferred doing the same task**
 
 
 ## functions
-**functions** --> code that is repeated again, you can keep in function and call it whenever you want....
-manager --> developer
 
+
+function is a block of code that does something
+
+
+**functions** --> code that is repeated again, you can keep in function and call it whenever you want....
+
+
+## 34:50 function syntax
 
 FUNCTION_NAME(){
 	statements to run
@@ -321,8 +275,13 @@ VALIDATE(){
 	statements to run
 }
 
-FUNCTION_NAME --> calling name
+### calling the function 
+just call function name then it will run
 
+
+## fucntions code 36:17
+
+```bash
 #!/bin/bash
 
 ID=$(id -u)
@@ -352,6 +311,7 @@ VALIDATE $? "Installing MySQL"
 yum install git -y
 
 VALIDATE $? "Installing GIT"
+```
 
 This Bash script performs the following tasks:
 
@@ -370,6 +330,66 @@ This Bash script performs the following tasks:
 7. Again, it calls the `VALIDATE` function with the exit status of the previous command and a message indicating the installation of Git.
 
 In summary, this script checks if it's being run with root privileges, installs MySQL and Git using `yum`, and validates the success of each installation using the `VALIDATE` function. If any installation fails, it prints an error message and exits with a non-zero exit status.
+
+
+
+
+
+
+
+## 43:00 logs 
+
+how can i get log of  
+
+
+
+
+------------------------
+
+100 statements
+10th line --> error
+
+1. stop, clear the error and proceed
+2. dont worry about error, proceed
+
+shell script wont stop if it faces error,
+
+it is our responsibility to check and proceed
+
+
+
+## EXIT status
+---------------
+previous command success or not
+
+`$?` --> if success, it has 0
+if failure, not zero
+
+
+different exit status are listed below
+
+In Linux and Unix-like operating systems, the exit status, also known as the return code, is a value returned by a command or a program to the parent process after it has finished executing. This exit status typically indicates whether the command or program completed successfully or encountered an error.
+
+Here are some common exit status codes and their meanings:
+
+1. **0**: Success - Indicates that the command or program completed successfully without encountering any errors.
+  
+2. **1**: General error - This exit status code is often used to indicate that the command or program encountered some unspecified error.
+  
+3. **2**: Misuse of shell builtins - Indicates that there was a misuse of shell built-in commands.
+  
+4. **126**: Permission problem or command is not executable - Indicates that the command or script does not have the appropriate permissions to execute or that it is not executable.
+  
+5. **127**: Command not found - Indicates that the command was not found or could not be executed.
+  
+6. **128+n**: Fatal error signal "n" - Indicates that the command or program terminated due to receiving a fatal signal. The value of "n" is typically added to 128 to determine the exit status code.
+  
+7. **130**: Terminated by Ctrl+C - Indicates that the command or program was terminated by the user pressing Ctrl+C.
+  
+8. **255**: Exit status out of range - Indicates that the exit status code is out of the valid range (0-255).
+
+These are some of the commonly used exit status codes, but there can be variations depending on the specific command or program being executed. It's important to refer to the documentation of each command or program to understand its specific exit status codes and their meanings.
+
 
 
 
