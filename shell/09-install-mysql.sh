@@ -1,4 +1,3 @@
-# check if user is root user or not
 #!/bin/bash
 
 ID = id -u
