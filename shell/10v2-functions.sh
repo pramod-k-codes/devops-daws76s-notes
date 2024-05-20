@@ -11,13 +11,14 @@ INSTALL_APPLICATION "mysql"
 
 
 IS_ROOT_USER(){
+    # ID = $id -u
     ID = $id -u
     if [ $ID -eq 0 ]
     then
         echo "user is root"
     else
         echo "user is not root"
-        exit 1
+    fi
 }
 
 INSTALL_APPLICATION(){
@@ -33,4 +34,5 @@ VALIDATE_INSTALLATION(){
     else
         echo "application $1 is not installed"
         exit 1
+    fi
 }
