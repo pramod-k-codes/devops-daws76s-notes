@@ -33,7 +33,9 @@ VALIDATE_INSTALLATION(){
         echo "application $2 is installed"
     else
         echo "application $2 is not installed"
-        exit 1
+        # exit 1 if you use this the script will stop when one installation fails , you should log and continue
+        # Log the error and continue with the next installation
+        echo "Error: Unable to install $2" >> install_errors.log
     fi
 }
 
