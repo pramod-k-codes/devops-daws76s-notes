@@ -3,11 +3,11 @@
 # IS_ROOT_USER # this will fail in shell script because in shell you have to define the function before calling , calling should always at the end of file
 
 
+ID = $(id -u)
 
 IS_ROOT_USER(){
-    # ID = $id -u
+    # ID = $id -u -threre are 2 issues if you use id here , ID is not defined and also correct command is $(id -u)
     echo "checking if user is root"
-    ID = $(id -u)
     echo $ID
     if [ $ID -eq 0 ]
     then
