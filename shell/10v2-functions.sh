@@ -7,7 +7,8 @@
 IS_ROOT_USER(){
     # ID = $id -u
     echo "checking if user is root"
-    ID = $id -u
+    ID = $(id -u)
+    echo $ID
     if [ $ID -eq 0 ]
     then
         echo "user is root"
