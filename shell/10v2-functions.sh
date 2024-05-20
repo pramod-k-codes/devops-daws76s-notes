@@ -2,7 +2,7 @@
 
 
 # check if user is root user to install the applciations or not
-IS_ROOTUSER
+IS_ROOT_USER
 
 # if user is root then install the applications 
 INSTALL_APPLICATION "mysql"
