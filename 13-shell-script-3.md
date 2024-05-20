@@ -331,7 +331,10 @@ This Bash script performs the following tasks:
 
 In summary, this script checks if it's being run with root privileges, installs MySQL and Git using `yum`, and validates the success of each installation using the `VALIDATE` function. If any installation fails, it prints an error message and exits with a non-zero exit status.
 
-# 37:50
+# 37:50 vid 4
+## 40:15 parameterizing the functions
+
+
 
 ### exit 0
 
