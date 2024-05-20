@@ -1,13 +1,7 @@
 #!/bin/bash
 
+# IS_ROOT_USER # this will fail in shell script because in shell you have to define the function before calling , calling should always at the end of file
 
-# check if user is root user to install the applciations or not
-IS_ROOT_USER
-
-# if user is root then install the applications 
-INSTALL_APPLICATION "mysql"
-
-# validate application installation - i am calling this in install applciation method because it reduces code and when we install applciation validation of the installation is part of installation , if we dont validate , its the work half done
 
 
 IS_ROOT_USER(){
@@ -36,3 +30,11 @@ VALIDATE_INSTALLATION(){
         exit 1
     fi
 }
+
+# check if user is root user to install the applciations or not
+IS_ROOT_USER # this will fail in shell script because in shell you have to define the function before calling , calling should always at the end of file
+
+# if user is root then install the applications 
+INSTALL_APPLICATION "mysql"
+
+# validate application installation - i am calling this in install applciation method because it reduces code and when we install applciation validation of the installation is part of installation , if we dont validate , its the work half done
