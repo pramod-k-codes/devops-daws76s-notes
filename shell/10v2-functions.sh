@@ -3,10 +3,12 @@
 # IS_ROOT_USER # this will fail in shell script because in shell you have to define the function before calling , calling should always at the end of file
 
 
-ID = $(id -u)
+# ID=$(id -u) #should not have spaces as like this ID = $(id -u)
 
 IS_ROOT_USER(){
     # ID = $id -u -threre are 2 issues if you use id here , ID is not defined and also correct command is $(id -u)
+    ID=$(id -u) #should not have spaces as like this ID = $(id -u)
+
     echo "checking if user is root"
     echo $ID
     if [ $ID -eq 0 ]
@@ -14,6 +16,7 @@ IS_ROOT_USER(){
         echo "user is root"
     else
         echo "user is not root"
+        exit 1;
     fi
 }
 
@@ -21,15 +24,15 @@ INSTALL_APPLICATION(){
     IS_ROOT_USER
     echo "installing application $1"
     yum install $1 -y
-    VALIDATE_INSTALLATION $1
+    VALIDATE_INSTALLATION $? $1
 }
 
 VALIDATE_INSTALLATION(){
-    if [ $? -eq 0 ]
+    if [ $1 -eq 0 ]
     then
-        echo "application $1 is installed"
+        echo "application $2 is installed"
     else
-        echo "application $1 is not installed"
+        echo "application $2 is not installed"
         exit 1
     fi
 }
