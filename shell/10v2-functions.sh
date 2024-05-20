@@ -52,6 +52,7 @@ IS_ROOT_USER # this will fail in shell script because in shell you have to defin
 
 INSTALL_APPLICATION "mysql"
 INSTALL_APPLICATION "firefox"
-INSTALL_APPLICATION "nginx"
 INSTALL_APPLICATION "chrome"
 INSTALL_APPLICATION "firewall-d"
+INSTALL_APPLICATION "nginx"
+
