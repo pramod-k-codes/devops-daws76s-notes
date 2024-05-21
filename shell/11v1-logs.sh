@@ -1,13 +1,10 @@
 #!/bin/bash
 
-INSTALL_APPLICATION "mysql"
-INSTALL_APPLICATION "firefox"
-INSTALL_APPLICATION "chrome"
-INSTALL_APPLICATION "firewall-d"
-INSTALL_APPLICATION "nginx"
-
+#function defenition needs to be on top in shell script
 IS_ROOT_USER(){
     ID=$(id -u) 
+    DATE-$(date +%F)
+    echo "$DATE"
     echo "checking if user is root"
     echo $ID
     if [ $ID -eq 0 ]
@@ -37,7 +34,11 @@ VALIDATE_INSTALLATION(){
 }
 
 IS_ROOT_USER # this will fail in shell script because in shell you have to define the function before calling , calling should always at the end of file
-
+INSTALL_APPLICATION "mysql"
+INSTALL_APPLICATION "firefox"
+INSTALL_APPLICATION "chrome"
+INSTALL_APPLICATION "firewall-d"
+INSTALL_APPLICATION "nginx"
 
 
 
