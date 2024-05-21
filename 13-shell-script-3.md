@@ -489,6 +489,50 @@ echo $DATE
 
 In the second example, the extra space between "21" and "2024" is collapsed when using `echo $DATE` due to word splitting, whereas `echo "$DATE"` preserves the exact formatting.
 
+## colors 1:06:25
+
+R="\e[31m"
+G="\e[32m"
+N="\e[0m"
+
+The `echo -e` command in Linux is used to enable interpretation of backslash escapes. This allows you to use special escape sequences within the string that `echo` prints. Here are some commonly used escape sequences:
+
+- `\n`: New line
+- `\t`: Tab
+- `\\`: Backslash
+- `\b`: Backspace
+
+### Example Usage:
+
+```bash
+echo -e "First line\nSecond line"
+# Output:
+# First line
+# Second line
+
+echo -e "Column1\tColumn2\tColumn3"
+# Output:
+# Column1 Column2 Column3
+
+echo -e "This is a backslash: \\"
+# Output:
+# This is a backslash: \
+
+echo -e "Hello\bWorld"
+# Output:
+# HellWorld
+```
+
+In each case, the `-e` option tells `echo` to interpret the escape sequences and produce the formatted output accordingly. Without `-e`, the backslashes would be treated as literal characters, and the special formatting would not occur.
+
+
+## loops 1:14:00
+
+for(int i=0;i<100;i++){
+	print i;	
+}
+**12loops.sh 1:17:00**
+
 
  
 ### exit 0
@@ -587,38 +631,14 @@ Here are some common exit status codes and their meanings:
 These are some of the commonly used exit status codes, but there can be variations depending on the specific command or program being executed. It's important to refer to the documentation of each command or program to understand its specific exit status codes and their meanings.
 
 
+## end of class questions
 
-
-
->> 
-
-
-
-
-RED -- \e[31m
-GREEN -- \e[32m
-YELLOW -- \e[33m
-normal -- \e[0m
-
-echo -e "Hello Iam learning \e[31m Shell script"
-
-loops
------------------
-1 100
-
-eho 1
-echo 2
-echo 3
-echo 4
-
-for(int i=0;i<100;i++){
-	print i;	
-}
-
-<h1>fkhdfkjdffjdf;djfl</h1> fjdfjdf;lf
-
-
-
-LOGFILE=/tmp/something.log
-
-ls -ltr &>> $LOGFILE
+jagadish
+vishnu
+sowmit
+smoothini saga
+sukumar g
+afsana
+TUKARAM
+AMULYA debugging
+narasimha rao

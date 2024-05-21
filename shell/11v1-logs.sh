@@ -1,23 +1,26 @@
 #!/bin/bash
 
-DATE=$(date +%F%R%S)
-echo $DATE
-LOGFILE=/tmp/$0-$DATE.log
+# adding colors
+RED="\e[31m"
+GREEN="\e[32m"
+YELLOW="\e[33m"
+NONE="\e[0m"
 
-echo "Script started executing at $TIMESTAMP" &>> $LOGFILE
+
+TIMESTAMP=$(date +%F%R%S)
+LOGFILE=/tmp/$0-$TIMESTAMP.log
+
+echo "Script started executing at $YELLOW $TIMESTAMP$None" &>> $LOGFILE $NONE
 
 #function defenition needs to be on top in shell script
 IS_ROOT_USER(){
     ID=$(id -u) 
-    # echo "$DATE"
-
     echo "checking if user is root"
-    echo $ID
     if [ $ID -eq 0 ]
     then
-        echo "user is root"
+        echo $GREEN "user is root" $NONE
     else
-        echo "user is not root"
+        echo $RED "user is not root" $NONE
         exit 1;
     fi
 }
@@ -32,10 +35,9 @@ INSTALL_APPLICATION(){
 VALIDATE_INSTALLATION(){
     if [ $1 -eq 0 ]
     then
-        echo "application $2 is installed"
+        echo $GREEN "application $2 is installed" $NONE
     else
-        echo "application $2 is not installed"
-        echo "Error: Unable to install $2" >> install_errors.log
+        echo  $RED "application $2 is not installed" $NONE
     fi
 }
 
