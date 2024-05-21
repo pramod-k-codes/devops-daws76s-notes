@@ -10,15 +10,15 @@ NONE="\e[0m"
 TIMESTAMP=$(date +%F%R%S)
 LOGFILE=/tmp/$0-$TIMESTAMP.log
 
-echo "Script started executing at $YELLOW $TIMESTAMP $NONE" &>> $LOGFILE
+echo -e "Script started executing at $YELLOW $TIMESTAMP $NONE" &>> $LOGFILE
 
 #function defenition needs to be on top in shell script
 IS_ROOT_USER(){
     ID=$(id -u) 
-    echo "$YELLOW checking if user is root $NONE"
+    echo -e "$YELLOW checking if user is root $NONE"
     if [ $ID -eq 0 ]
     then
-        echo $GREEN "user is root" $NONE
+        echo -e $GREEN "user is root" $NONE
     else
         echo $RED "user is not root" $NONE
         exit 1;
