@@ -33,12 +33,12 @@ VALIDATE_INSTALLATION(){
     fi
 }
 
-IS_ROOT_USER # this will fail in shell script because in shell you have to define the function before calling , calling should always at the end of file
-INSTALL_APPLICATION "mysql"
-INSTALL_APPLICATION "firefox"
-INSTALL_APPLICATION "chrome"
-INSTALL_APPLICATION "firewall-d"
-INSTALL_APPLICATION "nginx"
+# IS_ROOT_USER # this will fail in shell script because in shell you have to define the function before calling , calling should always at the end of file
+# INSTALL_APPLICATION "mysql"
+# INSTALL_APPLICATION "firefox"
+# INSTALL_APPLICATION "chrome"
+# INSTALL_APPLICATION "firewall-d"
+# INSTALL_APPLICATION "nginx"
 
 
 
