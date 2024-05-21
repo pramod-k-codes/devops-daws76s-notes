@@ -3,7 +3,7 @@
 #function defenition needs to be on top in shell script
 IS_ROOT_USER(){
     ID=$(id -u) 
-    DATE-$(date +%F)
+    DATE=$(date +%F%R%S)
     echo "$DATE"
     echo "checking if user is root"
     echo $ID
