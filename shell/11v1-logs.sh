@@ -2,6 +2,9 @@
 
 DATE=$(date +%F%R%S)
 echo $DATE
+LOGFILE=/tmp/$0-$DATE.log
+
+echo "Script started executing at $TIMESTAMP" &>> $LOGFILE
 
 #function defenition needs to be on top in shell script
 IS_ROOT_USER(){
@@ -22,7 +25,7 @@ IS_ROOT_USER(){
 INSTALL_APPLICATION(){
     IS_ROOT_USER
     echo "installing application $1"
-    yum install $1 -y &>>/tmp/$0-$DATE.log
+    yum install $1 -y &>> $LOGFILE
     VALIDATE_INSTALLATION $? $1
 }
 
