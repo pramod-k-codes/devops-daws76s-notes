@@ -20,14 +20,14 @@ IS_ROOT_USER(){
     then
         echo -e $GREEN "user is root" $NONE
     else
-        echo $RED "user is not root" $NONE
+        echo -e $RED "user is not root" $NONE
         exit 1;
     fi
 }
 
 INSTALL_APPLICATION(){
     IS_ROOT_USER
-    echo "installing application $1"
+    echo -e "installing application $1"
     yum install $1 -y &>> $LOGFILE
     VALIDATE_INSTALLATION $? $1
 }
@@ -35,9 +35,9 @@ INSTALL_APPLICATION(){
 VALIDATE_INSTALLATION(){
     if [ $1 -eq 0 ]
     then
-        echo $GREEN "application $2 is installed" $NONE
+        echo -e $GREEN "application $2 is installed" $NONE
     else
-        echo  $RED "application $2 is not installed" $NONE
+        echo -e $RED "application $2 is not installed" $NONE
     fi
 }
 
