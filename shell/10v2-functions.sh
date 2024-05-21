@@ -23,7 +23,7 @@ IS_ROOT_USER(){
 INSTALL_APPLICATION(){
     IS_ROOT_USER
     echo "installing application $1"
-    yum install $1 -y
+    yum install $1 -y 
     VALIDATE_INSTALLATION $? $1
 }
 
