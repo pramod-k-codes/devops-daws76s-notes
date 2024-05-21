@@ -30,3 +30,12 @@ Thanks to chat gpt its very handy in correcting mistakes while learning
 Use a structured approach to learning , instead of learning everything at once , learn in small chunks and then combine them to get a good understanding of the topic.
 
 Revise what you learnt , you will forget you wont revise.
+
+# Resume prep
+- Know what is the industry expectation ,you need to understand what to learn in order to get a job
+- go though job descriptions , understand what is the expected from job
+- learn stuff , and list it in resume
+- see if you are getting calls
+- if you are not getting calls then revise resume
+- do it till you get calls
+- connect with other people on how they achieved it
