@@ -4,7 +4,9 @@
 IS_ROOT_USER(){
     ID=$(id -u) 
     DATE=$(date +%F%R%S)
-    echo "$DATE"
+    # echo "$DATE"
+    echo $DATE
+
     echo "checking if user is root"
     echo $ID
     if [ $ID -eq 0 ]
