@@ -1,11 +1,12 @@
 #!/bin/bash
 
+DATE=$(date +%F%R%S)
+echo $DATE
+
 #function defenition needs to be on top in shell script
 IS_ROOT_USER(){
     ID=$(id -u) 
-    DATE=$(date +%F%R%S)
     # echo "$DATE"
-    echo $DATE
 
     echo "checking if user is root"
     echo $ID
@@ -21,7 +22,7 @@ IS_ROOT_USER(){
 INSTALL_APPLICATION(){
     IS_ROOT_USER
     echo "installing application $1"
-    yum install $1 -y 
+    yum install $1 -y &>>/tmp/$0-$DATE.log
     VALIDATE_INSTALLATION $? $1
 }
 
