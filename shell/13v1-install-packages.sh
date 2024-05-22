@@ -5,8 +5,6 @@ R="\e[31m"
 G="\e[32m"
 N="\e[0m"
 
-# Process text for formatting
-ECHO_PROCESS 
 
 ECHO_PROCESS(){
     echo -e $1 $2 $N
@@ -23,3 +21,5 @@ ISROOTUSER(){
 
 #check if user is root or not
 ISROOTUSER
+# Process text for formatting
+ECHO_PROCESS 
