@@ -15,7 +15,7 @@ ISROOTUSER(){
     then echo $R"Please run as root"$N
         exit
     else
-        echo "Running as root"
+        ECHO_PROCESS $G "Running as root"
     fi
 }
 
