@@ -338,22 +338,13 @@ Shiva-S13 - vid 5 - timestamp 40:57
 
 ## logs 44:38 redirection 46:38
 
-
-
-## logging
 logging only happens when we log stuff
 
 storing logs --> what happened yesterday
 
-> --> redirection
 
 ## Redirections 46:33
 
----------------
-
-
-
-to st
 command > temp.log --> by default success output only stores here
 
 **1 --> success
@@ -427,7 +418,7 @@ Understanding these redirection techniques allows you to better control and mana
 
 
 
-## logs 52:00
+## special symbols, How to get script name
 
 script-name-<date>.log
 
@@ -489,7 +480,7 @@ echo $DATE
 
 In the second example, the extra space between "21" and "2024" is collapsed when using `echo $DATE` due to word splitting, whereas `echo "$DATE"` preserves the exact formatting.
 
-## colors 1:06:25
+## colors in terminal and shell script 1:06:25
 
 R="\e[31m"
 G="\e[32m"
@@ -526,7 +517,7 @@ echo -e "Hello\bWorld"
 In each case, the `-e` option tells `echo` to interpret the escape sequences and produce the formatted output accordingly. Without `-e`, the backslashes would be treated as literal characters, and the special formatting would not occur.
 
 
-## loops 1:14:00
+## loops and how to use them 1:14:00
 
 for(int i=0;i<100;i++){
 	print i;	
@@ -535,7 +526,7 @@ for(int i=0;i<100;i++){
 
 
  
-### exit 0
+### exit 0 and exit status
 
 if you give exit 0 script will terminate at point and will be marked as success 
 
@@ -577,28 +568,9 @@ Source: Conversation with Bing, 5/18/2024
 (3) What is meaning of 'exit 0' in shell script? - Stack Overflow. https://stackoverflow.com/questions/37788172/what-is-meaning-of-exit-0-in-shell-script.
 (4) shell script - Need the exit code of condition function when a Bash .... https://unix.stackexchange.com/questions/676733/need-the-exit-code-of-condition-function-when-a-bash-while-loop-terminates.
 ```
-## 43:00 logs 
-
-how can i get log of  
 
 
-
-
-------------------------
-
-100 statements
-10th line --> error
-
-1. stop, clear the error and proceed
-2. dont worry about error, proceed
-
-shell script wont stop if it faces error,
-
-it is our responsibility to check and proceed
-
-
-
-## EXIT status
+## EXIT status and exit codes
 ---------------
 previous command success or not
 
@@ -629,6 +601,15 @@ Here are some common exit status codes and their meanings:
 8. **255**: Exit status out of range - Indicates that the exit status code is out of the valid range (0-255).
 
 These are some of the commonly used exit status codes, but there can be variations depending on the specific command or program being executed. It's important to refer to the documentation of each command or program to understand its specific exit status codes and their meanings.
+
+## Error Handling
+---------------
+1. stop, clear the error and proceed
+2. dont worry about error, proceed
+
+shell script wont stop if it faces error,
+
+it is our responsibility to check and proceed
 
 
 ## end of class questions
