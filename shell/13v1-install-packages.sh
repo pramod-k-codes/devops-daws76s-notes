@@ -18,10 +18,17 @@ ISROOTUSER(){
         ECHO_PROCESS $G "Running as root"
     fi
 }
+INSTALL_PACKAGES(){
+    echo "Installing packages $#"
+    if [$# -gt 0]
+    then ECHO_PROCESS $G "Number of packages is $#, proceeding installation"
+    else
+    ECHO_PROCESS $R "No packages to install"
+    exit 1
+    fi
+}
 
-#check if user is root or not
-ISROOTUSER
-# Process text for formatting
-ECHO_PROCESS 
+
+
 
 
