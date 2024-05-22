@@ -12,7 +12,7 @@ ECHO_PROCESS(){
 
 ISROOTUSER(){
     if [ "$EUID" -ne 0 ]
-    then echo $R"Please run as root"$N
+    then ECHO_PROCESS $R"Please run as root"
         exit
     else
         ECHO_PROCESS $G "Running as root"
