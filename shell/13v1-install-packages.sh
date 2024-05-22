@@ -7,7 +7,7 @@ N="\e[0m"
 
 
 ECHO_PROCESS(){
-    echo -e $1 $2 $N
+    echo -e $1 $2 $N $3
 }
 
 ISROOTUSER(){
@@ -23,3 +23,5 @@ ISROOTUSER(){
 ISROOTUSER
 # Process text for formatting
 ECHO_PROCESS 
+
+
