@@ -2,8 +2,7 @@
 
 
 
-#check if user is root or not
-ISROOTUSER
+
 
 ISROOTUSER(){
     if [ "$EUID" -ne 0 ]
@@ -13,3 +12,6 @@ ISROOTUSER(){
         echo "Running as root"
     fi
 }
+
+#check if user is root or not
+ISROOTUSER
