@@ -18,16 +18,55 @@ ISROOTUSER(){
         ECHO_PROCESS $G "Running as root"
     fi
 }
+
+IS_PACKAGE_INSTALLED(){
+    echo "checking if package is installed"
+    if yum list installed $1 > /dev/null 2>&1
+    then
+    ECHO_PROCESS $G "$1 is installed"
+    exit 0
+    else
+    ECHO_PROCESS $R "$1 is not installed"
+    exit 1
+    fi
+}
+
+INSTALL_APPLICATION(){
+    ECHO_PROCESS $G "Installing application" $1
+    yum install $1 -y
+    if [ $? -eq 0 ]
+    then
+        ECHO_PROCESS $G "$1 installed"
+    else
+        ECHO_PROCESS $R "$1 installation failed"
+        exit 1
+    fi
+}
 INSTALL_PACKAGES(){
     echo "Installing packages $#"
     if [$# -gt 0]
     then ECHO_PROCESS $G "Number of packages is $#, proceeding installation"
+    
+    for current_package in $@
+    do
+       IS_PACKAGE_INSTALLED $current_package 
+        if [ $? -eq 0 ]
+        then 
+            INSTALL_APPLICATION $current_package
+        else
+            ECHO_PROCESS $R "$current_package installation failed"
+            exit 1
+        fi
+    done
+    else
+
+
+    INSTALL_APPLICATION
     else
     ECHO_PROCESS $R "No packages to install"
     exit 1
     fi
 }
-not started on 23052023 sadly
 
 
 
