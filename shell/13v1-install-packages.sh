@@ -24,10 +24,10 @@ IS_PACKAGE_INSTALLED(){
     if yum list installed $1 > /dev/null 2>&1
     then
         ECHO_PROCESS $R "$1 is already installed not installing again"
-    exit 0
+    exit 1
     else
         ECHO_PROCESS $G "$1 is not installed , proceeding with installing"
-    exit 1
+    exit 0
     fi
 }
 
