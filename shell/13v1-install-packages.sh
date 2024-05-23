@@ -63,4 +63,4 @@ INSTALL_PACKAGES(){
     fi
 }
 
-INSTALL_PACKAGES ngnx git mysql postfix net-tools
+INSTALL_PACKAGES ngnx gitt mysql # postfix net-tools
