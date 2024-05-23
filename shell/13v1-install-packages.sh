@@ -64,3 +64,7 @@ INSTALL_PACKAGES(){
 }
 
 INSTALL_PACKAGES ngnx gitt mysql # postfix net-tools
+
+# followng fixes needed
+#  tries to install installed packages only install packages which are not installed
+# print if package name is wrong
