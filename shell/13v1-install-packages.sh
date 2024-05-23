@@ -24,10 +24,10 @@ IS_PACKAGE_INSTALLED(){
     if yum list installed $1 > /dev/null 2>&1
     then
         ECHO_PROCESS $R "$1 is already installed not installing again"
-    exit 1
+        return 0
     else
         ECHO_PROCESS $G "$1 is not installed , proceeding with installing"
-    exit 0
+        return 1
     fi
 }
 
@@ -52,10 +52,9 @@ INSTALL_PACKAGES(){
             if [ $? -eq 0 ]
             then 
                 INSTALL_APPLICATION $current_package
-            else
-                ECHO_PROCESS $R "$current_package installation failed"
-                # exit 1
-            fi
+             if [ $? -ne 0 ]; then
+                    ECHO_PROCESS $R "$current_package installation failed"
+             fi
         done
     else
         ECHO_PROCESS $R "No packages to install"
