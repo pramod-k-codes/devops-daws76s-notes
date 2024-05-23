@@ -52,8 +52,9 @@ INSTALL_PACKAGES(){
             if [ $? -eq 0 ]
             then 
                 INSTALL_APPLICATION $current_package
-             if [ $? -ne 0 ]; then
-                    ECHO_PROCESS $R "$current_package installation failed"
+                if [ $? -ne 0 ]; then
+                        ECHO_PROCESS $R "$current_package installation failed"
+                fi
              fi
         done
     else
