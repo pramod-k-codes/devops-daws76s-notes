@@ -43,21 +43,20 @@ INSTALL_APPLICATION(){
     fi
 }
 INSTALL_PACKAGES(){
-    echo "Installing packages $#"
-    if [$# -gt 0]
+    echo "Installing package no $#"
+    if [ $# -gt 0 ] #    if [$# -gt 0] you need spaces
     then ECHO_PROCESS $G "Number of packages is $#, proceeding installation"
-    
-    for current_package in $@
-    do
-       IS_PACKAGE_INSTALLED $current_package 
-        if [ $? -eq 0 ]
-        then 
-            INSTALL_APPLICATION $current_package
-        else
-            ECHO_PROCESS $R "$current_package installation failed"
-            # exit 1
-        fi
-    done
+        for current_package in $@
+        do
+        IS_PACKAGE_INSTALLED $current_package 
+            if [ $? -eq 0 ]
+            then 
+                INSTALL_APPLICATION $current_package
+            else
+                ECHO_PROCESS $R "$current_package installation failed"
+                # exit 1
+            fi
+        done
     else
         ECHO_PROCESS $R "No packages to install"
         exit 1
