@@ -23,10 +23,10 @@ IS_PACKAGE_INSTALLED(){
     echo "checking if package is installed"
     if yum list installed $1 > /dev/null 2>&1
     then
-    ECHO_PROCESS $G "$1 is installed"
+        ECHO_PROCESS $R "$1 is already installed not installing again"
     exit 0
     else
-    ECHO_PROCESS $R "$1 is not installed"
+        ECHO_PROCESS $G "$1 is not installed , proceeding with installing"
     exit 1
     fi
 }
