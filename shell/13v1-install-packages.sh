@@ -55,20 +55,13 @@ INSTALL_PACKAGES(){
             INSTALL_APPLICATION $current_package
         else
             ECHO_PROCESS $R "$current_package installation failed"
-            exit 1
+            # exit 1
         fi
     done
     else
-
-
-    INSTALL_APPLICATION
-    else
-    ECHO_PROCESS $R "No packages to install"
-    exit 1
+        ECHO_PROCESS $R "No packages to install"
+        exit 1
     fi
 }
 
-
-
-
- 
+INSTALL_APPLICATION nginx
