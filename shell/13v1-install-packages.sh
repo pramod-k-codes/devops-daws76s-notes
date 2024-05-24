@@ -24,8 +24,8 @@ IS_VALID_PACKAGE() {
         ECHO_PROCESS $G "$current_package is valid"
         return 0
     else
-        ECHO_PROCESS $R "$current_package is not valid"
-        exit 1
+        ECHO_PROCESS $R "$current_package is invalid"
+        return 1
     fi
 }
 
