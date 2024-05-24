@@ -18,10 +18,23 @@ ISROOTUSER() {
     fi
 }
 
+IS_VALID_PACKAGE() {
+    echo "checking if package is valid"
+    yum list available "$current_package" > /dev/null 2>&1; then
+        ECHO_PROCESS $G "$current_package is valid"
+        return 0
+    else
+        ECHO_PROCESS $R "$current_package is not valid"
+        exit 1
+    fi
+}
+
 IS_PACKAGE_INSTALLED() {
     echo "checking if package is installed"
-    if yum list installed $1 >/dev/null 2>&1; then
-        ECHO_PROCESS $R "$1 is already installed not installing again"
+    # if yum list installed $1 >/dev/null 2>&1; then
+    yum info $1
+    if [ $? -eq 0 ]; then
+        ECHO_PROCESS $R "$1 is installed , skipping"
         return 0
     else
         ECHO_PROCESS $G "$1 is not installed , proceeding with installing"
@@ -46,21 +59,28 @@ PERFORM_INSTALLATION() {
         exit 1
     fi
 }
+
 INSTALL_PACKAGES() {
-    echo "Installing package no $#"
+    ECHO_PROCESS $G "Installing package no $#"
     if [ $# -gt 0 ]; then #    if [$# -gt 0] you need spaces
         ECHO_PROCESS $G "Number of packages is $#, proceeding installation"
-        # this loop itereates over packages
+
+        # Loop through each package
         for current_package in $@; do
+
+            IS_VALID_PACKAGE $current_package
             # check if package is already installed
             IS_PACKAGE_INSTALLED $current_package
             # if package is not installed install it
-            if [ $? -eq 0 ]; then
+            if [ $? -ne 0 ]; then # if 0 then package is installed already so check for non zero
                 PERFORM_INSTALLATION $current_package
                 # check if installation failed
-                if [ $? -ne 0 ]; then
-                    ECHO_PROCESS $R "$current_package installation failed"
-                fi
+                IS_PACKAGE_INSTALLED $current_package
+                # if [ $? -ne 0 ]; then
+                #     ECHO_PROCESS $R "$current_package installation failed"
+                # fi
+            else
+                ECHO_PROCESS $R "$current_package is not installed"
             fi
         done
     else
