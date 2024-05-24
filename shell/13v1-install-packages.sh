@@ -5,24 +5,22 @@ R="\e[31m"
 G="\e[32m"
 N="\e[0m"
 
-
-ECHO_PROCESS(){
+ECHO_PROCESS() {
     echo -e $1 $2 $N $3
 }
 
-ISROOTUSER(){
-    if [ "$EUID" -ne 0 ]
-    then ECHO_PROCESS $R"Please run as root"
+ISROOTUSER() {
+    if [ "$EUID" -ne 0 ]; then
+        ECHO_PROCESS $R"Please run as root"
         exit
     else
         ECHO_PROCESS $G "Running as root"
     fi
 }
 
-IS_PACKAGE_INSTALLED(){
+IS_PACKAGE_INSTALLED() {
     echo "checking if package is installed"
-    if yum list installed $1 > /dev/null 2>&1
-    then
+    if yum list installed $1 >/dev/null 2>&1; then
         ECHO_PROCESS $R "$1 is already installed not installing again"
         return 0
     else
@@ -31,10 +29,10 @@ IS_PACKAGE_INSTALLED(){
     fi
 }
 
-PERFORM_INSTALLATION(){
+PERFORM_INSTALLATION() {
     # Check if the package is available in the repositories
-    if yum list available "$package_name" > /dev/null 2>&1; then
-    ECHO_PROCESS $G "Package '$package_name' is valid."
+    if yum list available "$package_name" >/dev/null 2>&1; then
+        ECHO_PROCESS $G "Package '$package_name' is valid."
         ECHO_PROCESS $G "Installing application" $1
         yum install $1 -y
         if [ $? -eq 0 ]; then
@@ -48,24 +46,22 @@ PERFORM_INSTALLATION(){
         exit 1
     fi
 }
-INSTALL_PACKAGES(){
+INSTALL_PACKAGES() {
     echo "Installing package no $#"
-    if [ $# -gt 0 ] #    if [$# -gt 0] you need spaces
-    then ECHO_PROCESS $G "Number of packages is $#, proceeding installation"
-    # this loop itereates over packages
-        for current_package in $@
-        do
-        # check if package is already installed
-        IS_PACKAGE_INSTALLED $current_package 
-        # if package is not installed install it
-            if [ $? -eq 0 ]
-            then 
+    if [ $# -gt 0 ]; then #    if [$# -gt 0] you need spaces
+        ECHO_PROCESS $G "Number of packages is $#, proceeding installation"
+        # this loop itereates over packages
+        for current_package in $@; do
+            # check if package is already installed
+            IS_PACKAGE_INSTALLED $current_package
+            # if package is not installed install it
+            if [ $? -eq 0 ]; then
                 PERFORM_INSTALLATION $current_package
                 # check if installation failed
                 if [ $? -ne 0 ]; then
-                        ECHO_PROCESS $R "$current_package installation failed"
+                    ECHO_PROCESS $R "$current_package installation failed"
                 fi
-             fi
+            fi
         done
     else
         ECHO_PROCESS $R "No packages to install"
@@ -78,4 +74,3 @@ INSTALL_PACKAGES ngnx gitt mysql # postfix net-tools
 # followng fixes needed
 #  tries to install installed packages only install packages which are not installed
 # print if package name is wrong
-  
