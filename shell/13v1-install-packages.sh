@@ -20,7 +20,7 @@ ISROOTUSER() {
 
 IS_VALID_PACKAGE() {
     echo "checking if package is valid"
-    yum list available "$current_package" > /dev/null 2>&1; then
+    if yum list available "$current_package" >/dev/null 2>&1; then
         ECHO_PROCESS $G "$current_package is valid"
         return 0
     else
