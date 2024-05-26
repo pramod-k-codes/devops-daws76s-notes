@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 TIMESTAMP=$(date +%F-%H-%M-%S)
 R="\e[31m"
@@ -18,8 +18,6 @@ ISROOTUSER() {
         ECHO_PROCESS $G "Running as root"
     fi
 }
-
-
 
 IS_PACKAGE_INSTALLED() {
     echo "checking if package is installed"
@@ -53,7 +51,6 @@ IS_VALID_PACKAGE() {
     fi
 }
 
-
 INSTALL_PACKAGES() {
     if [ $# -gt 0 ]; then #    if [$# -gt 0] you need spaces
         ECHO_PROCESS $G "Number of packages is $#, proceeding installation"
@@ -63,7 +60,7 @@ INSTALL_PACKAGES() {
             IS_VALID_PACKAGE $current_package
         done
     else
-        ECHO_PROCESS $R ""Number of packages is $# - No packages to install"
+        ECHO_PROCESS $R "Number of packages is $# - No packages to install"
         exit 1
     fi
 }
