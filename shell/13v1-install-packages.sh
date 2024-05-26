@@ -41,7 +41,7 @@ IS_PACKAGE_INSTALLED() {
 
 IS_VALID_PACKAGE() {
     echo "checking if package is valid"
-    yum list available $1 >/dev/null 2>&1
+    yum list available $1
     # yum info $1 >/dev/null 2>&1
     if [ $# -eq 0 ]; then #    if [$# -gt 0] you need spaces
 
