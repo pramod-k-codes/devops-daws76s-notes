@@ -54,7 +54,7 @@ PERFORM_INSTALLATION() {
     fi
 
     IS_PACKAGE_INSTALLED $1
-    if [ $? -eq 0 ]; then
+    if [ $? -ne 0 ]; then
         ECHO_PROCESS $G "Installing application" $1
         yum install $1 -y
         if [ $? -eq 0 ]; then
@@ -69,7 +69,6 @@ PERFORM_INSTALLATION() {
 }
 
 INSTALL_PACKAGES() {
-    ISROOTUSER
     ECHO_PROCESS $G "Installing package no $#"
     if [ $# -gt 0 ]; then #    if [$# -gt 0] you need spaces
         ECHO_PROCESS $G "Number of packages is $#, proceeding installation"
