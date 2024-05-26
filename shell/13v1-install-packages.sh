@@ -46,7 +46,7 @@ IS_PACKAGE_INSTALLED() {
 PERFORM_INSTALLATION() {
     # Check if the package is available in the repositories
     IS_VALID_PACKAGE $1
-    if [$? -ne 0 ]; then
+    if [ $? -ne 0 ]; then
         # if $? value is zero then it means that the package is available so we don't need to do anything in this step
         # but when package is unavailable break loop and getout so exit 1
         ECHO_PROCESS $R "Package '$1' is not available in the repositories, enter correct package name."
