@@ -59,5 +59,5 @@ chmod +x check_package.sh
 Replace `your-package-name` with the actual package name you want to check.
 
 
-Shiva-S14 - vid 1 - timestamp 15:50
+Shiva-S14 - vid 2 - timestamp 15:50
 
