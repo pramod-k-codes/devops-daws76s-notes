@@ -190,5 +190,4 @@ check the script by
 
 
 
-Shiva-S14 - vid 2 - timestamp 15:50
-
+Shiva-S14 - vid 2 - timestamp 23:38
