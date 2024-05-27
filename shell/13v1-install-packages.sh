@@ -41,8 +41,8 @@ ISROOTUSER() {
 #   1 if the package is installed, 0 if the package is not installed and successfully installed.
 IS_PACKAGE_INSTALLED() {
     echo "checking if package is installed"
-    yum list installed $1 >/dev/null 2>&1 # Check if the package is installed
-    # yum info $1  # This line is commented out as it is not used in the function
+    # yum list available $1 # this checks and lists package detail from repositories when the package is not installed so not very instrumental
+    yum info $1 >/dev/null 2>&1
 
     if [ $? -eq 0 ]; then # If the package is installed
         ECHO_PROCESS $Y "$1 is installed, skipping"
