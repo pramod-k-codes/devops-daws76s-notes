@@ -41,8 +41,8 @@ IS_PACKAGE_INSTALLED() {
 
 IS_VALID_PACKAGE() {
     echo "checking if package is valid"
-    yum list available $1
-    # yum info $1 >/dev/null 2>&1
+    # yum list available $1 # this checks and lists package detail from repositories when the package is not installed
+    yum info $1 >/dev/null 2>&1
     if [ $? -eq 0 ]; then #    if [$# -gt 0] you need spaces
         ECHO_PROCESS $G "$1 is valid"
         IS_PACKAGE_INSTALLED $1
