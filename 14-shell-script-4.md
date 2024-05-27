@@ -59,5 +59,9 @@ chmod +x check_package.sh
 Replace `your-package-name` with the actual package name you want to check.
 
 
+## installing packages through shell script . this took a week for me to script 😊👌(❁´◡`❁)😎 
+![Celebre the hardwrok](image/dance.png)
+
+
 Shiva-S14 - vid 2 - timestamp 15:50
 
