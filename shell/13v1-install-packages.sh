@@ -90,7 +90,7 @@ IS_VALID_PACKAGE() {
 # Return:
 #   None
 INSTALL_PACKAGES() {
-    PACKAGE_INDEX = 1                                                       # Initialize package index
+    PACKAGE_INDEX=1                                                         # Initialize package index assignment should not have spaces
     if [ $# -gt 0 ]; then                                                   # Check if the number of arguments is greater than 0
         ECHO_PROCESS $G "Number of packages is $#, proceeding installation" # Print a message indicating the number of packages and the installation process
         # Loop through each package
