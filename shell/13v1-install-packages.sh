@@ -58,7 +58,7 @@ INSTALL_PACKAGES() {
         ECHO_PROCESS $G "Number of packages is $#, proceeding installation"
         # Loop through each package
         for current_package in $@; do
-            ECHO_PROCESS $G "Installing package no $#"
+            ECHO_PROCESS $G "Installing package no $current_package
             IS_VALID_PACKAGE $current_package
         done
     else
