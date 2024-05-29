@@ -43,7 +43,11 @@ IS_PACKAGE_INSTALLED() {
     echo "checking if package is installed"
     # yum list available $1 # this checks and lists package detail from repositories when the package is not installed so not very instrumental
     yum info $1 >/dev/null 2>&1
-
+     if [ $? -ne 0 ]; then # invalid package name
+        ECHO_PROCESS $Y "$1 is available"
+        return 1
+        exit
+    yum list installed $1
     if [ $? -eq 0 ]; then # If the package is installed
         ECHO_PROCESS $Y "$1 is installed, skipping"
         return 1
