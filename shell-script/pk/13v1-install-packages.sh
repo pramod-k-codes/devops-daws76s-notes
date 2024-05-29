@@ -47,7 +47,7 @@ IS_PACKAGE_INSTALLED() {
         ECHO_PROCESS $Y "$1 is available"
         return 1
         exit
-    yum list installed $1
+    yum list installed | grep $1
     if [ $? -eq 0 ]; then # If the package is installed
         ECHO_PROCESS $Y "$1 is installed, skipping"
         return 1
