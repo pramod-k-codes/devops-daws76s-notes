@@ -170,6 +170,7 @@ INSTALL_PACKAGES() {
         ECHO_PROCESS $R "Number of packages is $# - No packages to install" # Print an error message if no packages are provided
         exit 1                                                              # Exit with a status code of 1
     fi
+    ECHO_PROCESS $G "Installation of packages is complete" # Print a message indicating the installation is complete
 }
 
 ISROOTUSER
