@@ -1,0 +1,224 @@
+# Interview questions
+## All
+- What are the services you handled in aws?
+- Do you have any exposer in compute?
+- Have you created any clusters in eks?
+- In eks cluster what is meant by managed cluster and non managed clusters?
+- You have created your cluster in your organization. You created from terraform or manually?
+- How the kubernetes cluster actually communicate with other services. What are the resources we use?
+- Difference between HPA and VPA in kubernetes?
+- Do you have any exposer in helm with kubernetes?
+- How you are going to connect your master node with your worker node?
+- How you are discriminating this is a master node and this is a worker node?
+- What is end points in vpc?
+- How many ends points we have?
+- What is vpc peering?
+- How this vpc peering works?
+- What are the type of elastic loadbalancers we have?
+- Difference between ALB and NLB. And which is the best?
+- What is meant by launch configuration?
+- What is terraform taint command?
+- Where you are storing your terraform state file locally or remotely?
+- If state file was missed what is the next step you will do?
+- What is the CI/CD you used?
+- Have you written any declarative pipeline?
+- What is the difference between declarative pipeline and scripting pipeline in jenkins?
+- In jenkins what type of pipeline you used?
+- For multibranch pipeline what are the branching strategy you used?
+- In jenkins if want to use any secrete as part of your pipeline which cannot be exposed
+- What is multistaging in docker?
+- In shell script what is /dev/run ?
+- If you want to mount the disk what are the steps you followed?
+- What is git rebase?
+- Difference between git rebase and merge?
+- Do you have any exposer on argoCD?
+
+
+
+- How do you determine if a subnet is private or public?
+- if I want to run a specific container in pod in Kubernetes how to run it?
+- What is diff b\w EBS and EFS
+- Can you attach a single EBS volume to the multiple EC2 instances at the same time?
+- what is the diff b\w ALB and NLB
+- Remote state in terraform and state in terraform?
+- what are pipeline stages in your organization?
+- terraform data block vs resource block?
+- Entry point vs CMD
+- How the pods are communicating with each other?
+- what is VPC endpoint
+- what is docker file?
+- What are the similarities between SSL and TLS?
+- What will you do to make you application more secure?
+- What is the architecture of your application CICD deployment in current org?
+- what is multi stage in docker?
+- Namespace in k8?
+- what are tags in ansible?
+- what is pod security policy
+- ami and snapshot difference
+- Upgrade master node
+- How will you implement the security for a running container if you find an vulnerability?
+- What are the various things that can be done to increase Kubernetes security?
+- Problem faced?
+- What is s3?
+- What is the issue have u faced in Jenkins non prod to prod while building the Jenkins job?
+- What are issued faced in web application from pre pod to pod ?
+- Git conflict?
+- Branching strategy?
+- How often do you release the product?
+- What is your role in the project?
+- Day to day activities
+- How do you handle issues at the production level?
+- pipeline issues in Jenkins
+- production pipeline issues in Jenkins
+- Kubernetes issues in production
+- How do you collaborate with various teams?
+- what are the build issues have you faced in your project?
+- Deployment strategies
+- What is the architecture of Kubernetes?
+- What is booting process in Linux?
+- what is inode in Linux?
+- how to resolve merge conflicts?
+- What are various plugins in your Jenkins Pipeline?
+- what is inode in Linux?
+- What is VPC and its components?
+- What is difference between NACL and Security groups?
+- difference between Network and application load balancer
+- What are the different dashboards created in Grafana?
+- what is ansible playbook?
+- What are handlers in Ansible playbook?
+- What are various modules you have used in Ansible?
+- What is Ansible ad hoc command?
+- how the pod health check is done in Kubernetes?
+- Route 53 types
+- helm charts usage?
+- terraform modules?
+- What is Docker volume and how do you use it?
+- Network ACL --> to block particular IP
+- What is the Blue/Green Deployment Pattern?
+- What is a route table in Amazon VPC?
+- A role is type IAM identity used to authenticate and authorize to utilize the AWS services.
+- policy is nothing but what type of permission is given to the IAM identity
+- Merge vs rebase
+- interactive rebase git
+- squash in git
+- fast-forward merge in Git?
+- What is cherry pic
+- Jenkins error
+- Provider in terraform
+- How do you debug your existed container?
+- how do you upgrade Jenkins?
+- Null resource in terraform
+- Explian S3 lifecycle
+- Can you increase the size of the root volume without shutting down the instance?
+- How has Ansible helped your organization?
+- What is Kubernetes Ingress?
+- Kubernetes ConfigMaps and Secrets?
+- What is Deamon set
+- How can we pass an argument to Dockerfile?
+- What are register targets in Ansible?
+- Dockerfile runs as which user?
+- Docker Compose?
+- How do you push the image to Docker Hub
+- Write the docker file in java based
+- Can you explain the concept of auto-healing in Kubernetes and give examples of how it works?
+- What is the label & selector in k8s?
+- What is crashloofbackoff state in a pod?
+- What is DR?
+- How do you create a multi-branch Jenkins pipeline?
+- Explain the concept of a workspace
+- How to access the S3 bucket privately
+- How many many VPC can we create in one Region
+- autoscaling in aws ?
+- how microservces will work?
+- How do you mange credentials in terraform?
+- What is CRONTAB?
+- How would you know the disk usage using the shell script commands?
+- Give the purpose of the shebang line.
+- Tell us about the ‘$#’ use in shell scripting.
+
+## Devops Scenario Based Interview Questions
+
+- your organization is experiencing intermittent outages in its production environment, impacting customer experience. How would you approach troubleshooting and resolving these outages?
+- 
+- You've just deployed a new version of an application to production, but shortly after deployment, users are reporting issues with slow response times. What steps would you take to troubleshoot and resolve this issue?
+- 
+- Can you outline the key components of the CI/CD pipeline you would design for this project, including the tools you would use and the specific stages in the pipeline?
+- 
+- How do we enforce policy to automatically include a group as a PR ( Pull Request ) approver?
+- what are the build issues have you faced in your project ?
+
+    Different versions of packages as some of the packages were installed based on the linux kernel version
+
+- -I am  Rahul, and these are the questions I was asked during my interview. I encourage everyone to prepare their answers in their own way.
+- How do you determine if a subnet is private or public ?
+- What is diff b\w EBS and EFS
+- what is the diff b\w ALB and NLB
+ - if I want to run a specific container in pod in Kubernetes how to run it ?
+- state in terraform ?
+- Remote state in terraform ?
+- what are pipeline stages in your organization ?
+- terraform data block vs resource block ?
+- Entry point vs CMD
+ - what is docker file ?
+- How the pods are communicating with each other ?
+- what is vpc endpoint
+- What are the similarities between SSL and TLS?
+- What will you do to make you application more secure ?
+- What is the architecture of your application CICD deployment in current org ?
+- what is multi stage in docker ?
+- Namespace in k8 ?
+- what are tags in ansible ?
+- what is pod security policy
+- ami and snapshot difference
+- Upgrade master node
+- How will you implement the security for a running container if you find an vulnerability?
+ - What are the various things that can be done to increase Kubernetes security?
+  - Problem faced ?
+ - What is s3 ? (
+ - What are the issue have u faced in Jenkins non prod to prod while building the Jenkins job?
+ - What are issued faced in web application from pre pod to pod ?
+ - Git conflict ?
+ - Branching strategy ?
+- How often do you release the product ?
+- What is your role in the project ?
+- Day to day activities :-
+- How do you handle issues at the production level ?
+- pipeline issues in Jenkins
+- production pipeline issues in Jenkins
+- Kubernetes issues in production
+- How do you collaborate with various teams ?
+- what are the build issues have you faced in your project ?
+- Deployment strategies ?
+- What is the architecture of Kubernetes ?
+- What is booting process in Linux ?
+- what is inode in Linux ?
+- What are various plugins in your Jenkins Pipeline ?
+- How each tool is integrated with Jenkin ( we need to install respective plugin for the same)
+- how to resolve merge conflicts ?
+- What is VPC and its components ?
+- What is difference between NACL and Security groups ?
+- difference between Network and application load balancer
+- What are the different dashboards created in Grafana ?
+- what is ansible playbook ?
+- What is handlers in Ansible playbook?
+- What are various modules you have used in Ansible ?
+- What are Ansible ad hoc command ?
+- how the pod health check is done in Kubernetes ?
+- Route 53 types :-
+- ----------------------
+- helm charts usage ?
+- terraform modules ?
+- What is Docker volume and how do you use it?
+- Network ACL --> to block particular IP
+- What is the Blue/Green Deployment Pattern?
+- What is a route table in Amazon VPC?
+- A role is type IAM identity used to authenticate and authorize to utilize the AWS services.
+ - policy is nothing but what type of permission is given to the IAM identity
+- Merge vs rebase
+- interactive rebase git
+- squash in git
+- fast-forward merge in Git?
+- What is cherry pic
+- Jenkins error :-
+- Provider in terraform
+

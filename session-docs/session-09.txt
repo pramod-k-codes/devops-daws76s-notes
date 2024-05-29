@@ -1,0 +1,294 @@
+errors
+-------------
+web --> roboshop.conf catalogue IP
+catalogue --> is running or not
+			  data loaded to mongodb or not
+			  catalogue.service mongodb IP is good or not
+mongodb --> remote 0.0.0.0 allowed or not
+firewalls
+
+catalogue --> mongodb
+
+redis
+--------
+apps --> redis --> DB
+
+http://daws76s.online/api/user/login
+
+
+5min break
+
+How to install application in Linux
+-----------------------------------
+We should have server
+
+nodejs, .net, java, python, php, go, etc.
+
+install that programming langugage
+
+creating a directory
+
+creating a seperate user for that application
+
+downloading the application
+
+install dependencies
+nodejs --> npm
+java --> mvn
+python --> pip
+.net --> nuget
+
+we are giving how to run in /etc/systemd/system/application.service
+
+systemctl start application
+systemctl enable application
+
+nodejs --> npm
+maven --> automatically maven will install java
+npm install = mvn clean package = it will give a jar file
+
+java --> compile --> bytecode(.jar file)
+python=nodejs = no need of compile = no bytecode
+
+
+
+running notes of class 9
+
+session 9
+setup from scratch again
+7:20 create 5 instances
+7 23 create instance for db
+7 25 setting up hosted zone
+
+7-26 record for catalogue
+for web we need public IP address
+7:27 providing remote access
+always check status after installing and starting the service
+
+netstat -lntp
+
+installing catalogue
+7:28
+
+disable node js 
+7:29
+enable node js 18 version
+then install the package 
+
+create user roboshop
+create dir
+download catalogue zip
+after unzipping perform installation
+7:31
+edit mongodb catalogue
+
+load the deamon and enable then start
+
+7:31
+catalogue and mongodbservers need to be configured with catalogue
+
+
+
+you can connect with mongodb and restart catalogue 
+
+
+
+
+runnong logs tail 0f
+less /var/log/messages
+less 
+
+
+7:34
+
+web configuration
+
+	install nginx
+	configuration of nginx
+	start nginx
+	remove default content
+	download our project and unzip at the location
+	configure roboshop configuration
+	restart nginx
+	
+now navigate to url and check
+
+7:36
+
+this project depends on redis so we need to install and configure
+
+
+apps hit redis and the nif not avaialable then hits db
+
+7:38
+
+connected to db server
+
+install redis
+
+7:39
+
+watch technology shorts and videos to develop interest
+7:40 install redis
+
+7:41 db always by defaykt allow local ip others are restricted
+
+change this config in redis conf file then restart redis
+
+netstat -lntp  redis runs on 6379
+
+
+
+
+7:43 configuration of user module
+
+
+create a record for user applicaiton
+
+
+login to user server
+
+	disable default version of nodejs
+	enable and install nodejs 18
+	add a user
+	create directory
+	download user applicaiton and unzip in the dir and then install the dependency
+7:46	
+	configure user service to access redis
+	
+	reload the deamon
+	enable user and start user
+	
+	reload schema
+	install default users
+	
+7:48
+	create record for user and configure in web and restrat nginx
+7:49
+	login to roboshop
+	
+	inspect network tab in browser with new user
+	
+	
+	web will redirect to user
+	
+7:53
+	configuration	of cart
+7:54
+	configuration of hostedzone for cart
+	
+	change ip address in hosted zone when servers are deleted  and created
+	
+7:56	
+	disable default version of nodejs
+	enable and install nodejs 18
+	add a user
+	create directory
+	download user applicaiton and unzip in the dir and then install the dependency
+	
+	create a servuce for cart
+	configure cart service
+	configure catalogue and redis host
+	
+	start enable cart and reload
+	
+	goto web and configure the nginx with cart hostedzone
+	
+shipping project uses my sql after break
+
+7:58 break
+
+
+8:05
+
+how to install applicaiton in linux
+
+
+we should have a server
+
+regardless of the language the process is
+	install the programming language
+	create a directory for easy management
+	creation of a user for applicaiton
+	then download the application
+	install dependency
+	we are running the applicaiton in service file
+	
+	then run in /etc/systemd/system/applicaiton.service
+	
+	start the applicaiton and enable it
+	
+8:09
+
+	launch an instance with t3.medium for SQL 
+	
+8:11
+	disable default version of mysql
+	enable and install desired version of mysql
+	
+	
+	add a user and passwrod
+	create directory
+	download user applicaiton and unzip in the dir and then install the dependency
+
+8:14 
+	create hostedzone record
+	
+8:15
+
+	shipping t3.medium
+	
+maven - dependency installation will be automatic by this 
+
+npm install = maven clean package = it will give a jar file
+nodejs and python will run directly there will be no need of bytecode similar to java
+
+8:18
+login to shipping module
+	isntall maven (also installs java)
+	
+	navigate to directory
+	unzip
+	and mvn clean package
+	
+	renaming to shipping.jar
+	
+	edit shipping service with cart endpoint and db host endpoint
+	
+	configure shipping sql
+	
+	
+8:24
+
+	install my sql client and load the data
+	
+	restart shipping applicaiton
+	
+	
+	check if its working or not using netstat -lntp
+
+8:28
+
+	check the cart applicaiton
+	
+payment in tomorrow class
+
+8:28 class is till 8:28
+
+8:28 questions
+
+practice notes;
+
+5 T2 MICRO
+1 t2 medium
+
+
+
+	
+	
+
+ns-1698.awsdns-20.co.uk
+	
+	
+
+
