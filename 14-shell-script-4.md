@@ -65,7 +65,6 @@ Replace `your-package-name` with the actual package name you want to check.
 
 ```bash
 
-
 #!/bin/bash
 
 TIMESTAMP=$(date +%F-%H-%M-%S)
@@ -110,9 +109,14 @@ ISROOTUSER() {
 IS_PACKAGE_INSTALLED() {
     echo "checking if package is installed"
     # yum list available $1 # this checks and lists package detail from repositories when the package is not installed so not very instrumental
-    yum info $1 >/dev/null 2>&1
-
-    if [ $? -eq 0 ]; then # If the package is installed
+    yum info $1 >/dev/null 2>&1 #this checks if package name is valid to install
+    if [ $? -ne 0 ]; then       # invalid package name
+        ECHO_PROCESS $Y "$1 is available"
+        return 1
+        exit
+    fi
+    yum list installed | grep $1 #this checks for installed package
+    if [ $? -eq 0 ]; then        # If the package is installed
         ECHO_PROCESS $Y "$1 is installed, skipping"
         return 1
     else # If the package is not installed
