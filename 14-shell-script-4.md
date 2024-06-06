@@ -187,7 +187,231 @@ check the script by
 
 
 
-
-
-
 Shiva-S14 - vid 3 - timestamp 27:20
+
+Creation of DB (mongo db ) using shell script manually , we can copy and paste the repo details in the instance using the vim or similar editor
+
+But in shell script the apporach is 
+> create a file which will contain the data you want to upload to a specific loation
+> export it using `cp` command , because editing is not possible with vim in shell and also makes things complicated
+> 
+
+When user is manually creating the DB 
+
+
+Shiva-S14 - vid 3 - timestamp 33:00 SED
+
+Replacing text in existing file is not possible with vim in shell, so we need to use `sed` command to replace the text in the file.
+
+
+## SED Editor 33:00
+
+In Linux, `sed` (short for **Stream Editor**) is a powerful command-line utility used for parsing and transforming text. It reads input text line by line, performs specified operations on each line, and outputs the modified text. Common operations include searching, replacing, inserting, and deleting text. Here are some typical uses of `sed`:
+
+1. **Substitution**: Replace occurrences of a pattern with a replacement.
+   ```sh
+   sed 's/old/new/' file.txt
+   ```
+   This command replaces the first occurrence of "old" with "new" in each line of `file.txt`.
+
+2. **Global Substitution**: Replace all occurrences of a pattern with a replacement.
+   ```sh
+   sed 's/old/new/g' file.txt
+   ```
+   This command replaces all occurrences of "old" with "new" in each line.
+
+3. **In-place Editing**: Modify the original file directly.
+   ```sh
+   sed -i 's/old/new/g' file.txt
+   ```
+   This command performs a global substitution and saves the changes directly to `file.txt`.
+
+4. **Delete Lines**: Remove lines matching a pattern.
+   ```sh
+   sed '/pattern/d' file.txt
+   ```
+   This command deletes lines containing "pattern" from `file.txt`.
+
+5. **Print Lines**: Print specific lines that match a pattern.
+   ```sh
+   sed -n '/pattern/p' file.txt
+   ```
+   This command prints only the lines that contain "pattern".
+
+6. **Insert or Append Text**: Add text before or after a pattern.
+   ```sh
+   sed '/pattern/i\new line' file.txt
+   sed '/pattern/a\new line' file.txt
+   ```
+   The first command inserts "new line" before lines containing "pattern", and the second inserts it after.
+
+7. **Extracting Lines by Number**:
+   ```sh
+   sed -n '5,10p' file.txt
+   ```
+   This command prints lines 5 through 10 from `file.txt`.
+
+`sed` is a versatile tool, especially useful for scripting and automation, as it can handle large files and perform complex text manipulations efficiently.
+
+
+to pracitce make a copy of /etc/passwd file to current dir by
+
+`cp /etc/passwd passwd`
+
+this doesnt open editor and directly opens the editor
+
+`sed -e '1 a I am learning Shell script' <file-name>`
+
+The `sed` command you provided is used to append a line of text after a specified line in a file. Let's break down the command:
+
+```sh
+sed -e '1 a I am learning Shell script' <file-name>
+```
+
+Here is a detailed explanation of each part of the command:
+
+1. **`sed`**: This is the command itself, invoking the stream editor.
+2. **`-e`**: This option indicates that the following string is a script to be executed by `sed`. You can include multiple `-e` options to execute multiple scripts in sequence.
+3. **`'1 a I am learning Shell script'`**: This is the `sed` script. It has three parts:
+   - **`1`**: This specifies the line number after which the text will be appended. In this case, it's line 1.
+   - **`a`**: This stands for "append". It tells `sed` to add the following text after the specified line.
+   - **`I am learning Shell script`**: This is the text to be appended.
+4. **`<file-name>`**: This is the input file. `sed` will read from this file and process its contents according to the script provided.
+
+### What the Command Does
+
+- The command reads the contents of `<file-name>`.
+- After the first line (line 1), it appends the text "I am learning Shell script".
+- The output will include the original file contents with the specified text added after the first line.
+
+### Example
+
+Suppose `<file-name>` contains the following text:
+
+```
+Line 1
+Line 2
+Line 3
+```
+
+Running the command:
+
+```sh
+sed -e '1 a I am learning Shell script' <file-name>
+```
+
+The output will be:
+
+```
+Line 1
+I am learning Shell script
+Line 2
+Line 3
+```
+
+In summary, this `sed` command inserts the specified text "I am learning Shell script" immediately after the first line of the input file.
+
+sed is temparory editor
+
+if you want the change to be permananetted, you can use i instead of e
+
+## i VS e 37:00.
+
+The `sed` commands you provided both append a line of text after the first line of a file, but there is a key difference between them in terms of how they affect the file. Here's a detailed explanation of each command:
+
+### `sed -i '1 a I am learning Shell script' <file-name>`
+
+1. **`sed`**: This is the stream editor command.
+2. **`-i`**: This option stands for "in-place" editing. It modifies the file directly, saving the changes to the original file.
+3. **`'1 a I am learning Shell script'`**: This is the `sed` script:
+   - **`1`**: Specifies the line number after which to append the text. Here, it's line 1.
+   - **`a`**: Stands for "append".
+   - **`I am learning Shell script`**: The text to be appended.
+4. **`<file-name>`**: The input file to be modified.
+
+### What it does:
+
+- This command reads `<file-name>`.
+- It appends "I am learning Shell script" after the first line.
+- The file `<file-name>` is modified in place, meaning the changes are saved directly to the file.
+
+### Example:
+
+Suppose `<file-name>` contains:
+
+```
+Line 1
+Line 2
+Line 3
+```
+
+After running:
+
+```sh
+sed -i '1 a I am learning Shell script' <file-name>
+```
+
+The content of `<file-name>` will be:
+
+```
+Line 1
+I am learning Shell script
+Line 2
+Line 3
+```
+
+### `sed -e '1 a I am learning Shell script' <file-name>`
+
+1. **`sed`**: The stream editor command.
+2. **`-e`**: Indicates that the following string is a script to be executed.
+3. **`'1 a I am learning Shell script'`**: This is the `sed` script:
+   - **`1`**: Specifies the line number after which to append the text.
+   - **`a`**: Stands for "append".
+   - **`I am learning Shell script`**: The text to be appended.
+4. **`<file-name>`**: The input file to be processed.
+
+### What it does:
+
+- This command reads `<file-name>`.
+- It appends "I am learning Shell script" after the first line.
+- The changes are not saved to `<file-name>`; instead, the modified content is sent to the standard output (typically the terminal).
+
+### Example:
+
+Suppose `<file-name>` contains:
+
+```
+Line 1
+Line 2
+Line 3
+```
+
+After running:
+
+```sh
+sed -e '1 a I am learning Shell script' <file-name>
+```
+
+The output will be:
+
+```
+Line 1
+I am learning Shell script
+Line 2
+Line 3
+```
+
+However, the content of `<file-name>` will remain unchanged.
+
+### Summary
+
+- `sed -i '1 a I am learning Shell script' <file-name>`: Modifies the file directly, appending the text after the first line and saving the changes to the file.
+- `sed -e '1 a I am learning Shell script' <file-name>`: Outputs the modified content to the standard output without changing the original file.
+
+## Lines update 37:51
+
+`sed -e 's/sbin/SBIN passwd` passwd
+
+
+**Shiva-S14 - vid 3 - timestamp 37:51 SED**
+

@@ -7,6 +7,7 @@
 -----------------------------------------------
 
 
+```
 if(expression){
 	statement if expression is true
 }
@@ -32,6 +33,7 @@ if(today != "sunday"){
 else{
 	print "Happy Holiday"
 }
+```
 
 20
 if 20 is greater than 100 then print, given no is greater than 20

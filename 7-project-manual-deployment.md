@@ -1,39 +1,38 @@
-# 7 Roboshop project configuration
-- [7 Roboshop project configuration](#7-roboshop-project-configuration)
-  - [architecture of roboshop](#architecture-of-roboshop)
-- [What is the difference between stateful and stateless?](#what-is-the-difference-between-stateful-and-stateless)
-  - [stateful](#stateful)
-  - [stateless](#stateless)
-  - [stateful and stateless explanation for kids](#stateful-and-stateless-explanation-for-kids)
-    - [examples](#examples)
-  - [CRUD operations explanation](#crud-operations-explanation)
-  - [configuring the app 11:10](#configuring-the-app-1110)
-    - [installing web server 12:00](#installing-web-server-1200)
-  - [Forward proxy vs reverse proxy](#forward-proxy-vs-reverse-proxy)
-  - [dnf vs yum](#dnf-vs-yum)
-    - [connecting to server](#connecting-to-server)
-  - [curl vs wget](#curl-vs-wget)
-  - [forward proxy vs reverse proxy 29:24](#forward-proxy-vs-reverse-proxy-2924)
-  - [Forward Proxy](#forward-proxy)
-  - [reverse proxy](#reverse-proxy)
-    - [Forward Proxy vs Reverse Proxy: Real-Time Examples](#forward-proxy-vs-reverse-proxy-real-time-examples)
-  - [Nginx configuration](#nginx-configuration)
-  - [HTTP status](#http-status)
-  - [failure responses](#failure-responses)
-  - [caching 50:29](#caching-5029)
-  - [MongoDB 53:01](#mongodb-5301)
-  - [127.0.0.1 --\> localhost](#127001----localhost)
-  - [catalogue installation 1:05:10](#catalogue-installation-10510)
-  - [creating custom systemctl service to create a service 1:15:00](#creating-custom-systemctl-service-to-create-a-service-11500)
-  - [tail command 1:17:38](#tail-command-11738)
-  - [1:21:59 installing mongodb client](#12159-installing-mongodb-client)
-  - [Reverse proxy](#reverse-proxy-1)
-  - [caching](#caching)
-  - [DB configuration - MONGODB](#db-configuration---mongodb)
-  - [Catalogue module](#catalogue-module)
-  - [Assignment](#assignment)
-  - [AMI auth credentials](#ami-auth-credentials)
-  - [Qeustions 1:24:00](#qeustions-12400)
+# 1. 7 Roboshop project configuration
+- [1. 7 Roboshop project configuration](#1-7-roboshop-project-configuration)
+  - [1.1. architecture of roboshop](#11-architecture-of-roboshop)
+- [2. What is the difference between stateful and stateless?](#2-what-is-the-difference-between-stateful-and-stateless)
+  - [2.1. stateful](#21-stateful)
+  - [2.2. stateless](#22-stateless)
+  - [2.3. stateful and stateless explanation for kids](#23-stateful-and-stateless-explanation-for-kids)
+    - [2.3.1. examples](#231-examples)
+  - [2.4. CRUD operations explanation](#24-crud-operations-explanation)
+  - [2.5. configuring the app 11:10](#25-configuring-the-app-1110)
+    - [2.5.1. installing web server 12:00](#251-installing-web-server-1200)
+  - [2.6. dnf vs yum](#26-dnf-vs-yum)
+    - [2.6.1. connecting to server](#261-connecting-to-server)
+  - [2.7. curl vs wget](#27-curl-vs-wget)
+  - [2.8. Forward proxy vs reverse proxy](#28-forward-proxy-vs-reverse-proxy)
+    - [2.8.1. Forward Proxy](#281-forward-proxy)
+    - [2.8.2. reverse proxy](#282-reverse-proxy)
+    - [2.8.3. Forward Proxy vs Reverse Proxy: Real-Time Examples](#283-forward-proxy-vs-reverse-proxy-real-time-examples)
+  - [2.9. Nginx configuration](#29-nginx-configuration)
+  - [2.10. HTTP status](#210-http-status)
+  - [2.11. failure responses](#211-failure-responses)
+  - [2.12. caching 50:29](#212-caching-5029)
+  - [2.13. MongoDB 53:01](#213-mongodb-5301)
+  - [2.14. 127.0.0.1 --\> localhost](#214-127001----localhost)
+  - [2.15. catalogue installation 1:05:10](#215-catalogue-installation-10510)
+  - [2.16. creating custom systemctl service to create a service 1:15:00](#216-creating-custom-systemctl-service-to-create-a-service-11500)
+  - [2.17. tail command 1:17:38](#217-tail-command-11738)
+  - [2.18. 1:21:59 installing mongodb client](#218-12159-installing-mongodb-client)
+  - [2.19. Reverse proxy](#219-reverse-proxy)
+  - [2.20. caching](#220-caching)
+  - [2.21. DB configuration - MONGODB](#221-db-configuration---mongodb)
+  - [2.22. Catalogue module](#222-catalogue-module)
+  - [2.23. Assignment](#223-assignment)
+  - [2.24. AMI auth credentials](#224-ami-auth-credentials)
+  - [2.25. Qeustions 1:24:00](#225-qeustions-12400)
 
 Mettkom technologies - want to bring reform the in the education
 
@@ -42,7 +41,7 @@ Roboshop configuration - [documentation](https://github.com/daws-76s/roboshop-do
 - app/ api/ backend tier
 - database tier
 
-## architecture of roboshop
+## 1.1. architecture of roboshop
 
 ![Project architecture](image/7-roboshop-architecture.png)
 
@@ -59,8 +58,8 @@ api layer can use multiple programming lang such as python, ruby, java, go, etc
 DB is more crucial as we can bring up other instances or servers , but if db is lost and there are no backups , no one knows who placed the orders and payment status , balance in account etc . the whole business goes down
 
 
-# What is the difference between stateful and stateless?
-## stateful
+# 2. What is the difference between stateful and stateless?
+## 2.1. stateful
     A stateful application is a type of software program or system that maintains information about the state of its interaction with each user or entity. In other words, it remembers the data from previous interactions and uses it to influence future interactions. This contrasts with stateless applications, which treat each request as an independent transaction and do not retain any information about previous interactions.
 
 Stateful applications are commonly used in scenarios where it's necessary to maintain a continuous session with users, such as in web applications that require users to log in and maintain a session state as they navigate through various pages. Examples of stateful applications include online shopping carts, webmail applications, and social media platforms.
@@ -69,7 +68,7 @@ One challenge with stateful applications is managing the state across distribute
 
 Overall, stateful applications provide benefits such as personalized user experiences and efficient use of resources by retaining context between interactions, but they also require careful management of state to ensure scalability, reliability, and consistency.
 
-## stateless
+## 2.2. stateless
     A stateless application is a type of software program or system that does not maintain any information about the state of its interaction with each user or entity. In other words, it treats each request as an independent transaction and does not retain any information about previous interactions. This contrasts with stateful applications, which maintain information about the state of its interaction with each user or entity.
 
 
@@ -82,34 +81,34 @@ Stateless architectures are commonly used in modern web development, especially 
 Some benefits of stateless applications include improved scalability, easier load balancing, simpler recovery from failures, and better support for caching and content delivery networks (CDNs). However, designing stateless applications requires careful consideration of authentication, authorization, and data consistency across distributed systems, as these aspects cannot rely on session state.
 
 
-## stateful and stateless explanation for kids
+## 2.3. stateful and stateless explanation for kids
 
 Alright! Imagine you have a toy box. In a stateful game, you keep adding toys to your box, and every time you play, you remember which toys are already inside. So, you build upon what you've done before. But in a stateless game, every time you play, you start fresh, as if you're opening your toy box for the first time. You don't remember what toys you played with before because you're starting from scratch each time. Stateful is like building a tower block by block, remembering each block you've added. Stateless is like drawing a new picture on a blank sheet of paper every time, without remembering what you drew before.
 
-### examples
+### 2.3.1. examples
 
-DB apps are stateful.
+DB apps are stateful.     
 Web/ app are stateless.
 
-## CRUD operations explanation
-DB operations are CRUD operations.
+## 2.4. CRUD operations explanation
+DB operations are **CRUD** operations.  
+> Create - Create a new record in the database.     
+>Read - Read a record from the database.       
+>Update - Update a record in the database.   
+>Delete - Delete a record from the database.   
 
-Create - Create a new record in the database.
-Read - Read a record from the database.
-Update - Update a record in the database.
-Delete - Delete a record from the database.
-examples:
-Create User
-Read User
-Update User
-Delete User
+**examples:**   
+>    Create User   
+>    Read User   
+>    Update User   
+>    Delete User   
 
-DB reading must be quick otherwise there will be latency. So, we need to cache the data usually.
+**DB reading must be quick** otherwise there will be latency. So, we need to **cache** the data usually.
 This is handled by developers.
 
-## configuring the app 11:10
+## 2.5. configuring the app 11:10
     use documentation for installation.
-### installing web server 12:00
+### 2.5.1. installing web server 12:00
     we use nginx as a reverse proxy
     We use Centos - AMI name devops-practice in us-east-1 region choose the below ami
 
@@ -118,22 +117,18 @@ This is handled by developers.
 ![ami id](image/7-ami-id-details.png)
 
 credentials for the above ami is username - centos password - <DevOps321>
-this ami uses username and password to authenticate the user instead of using ssh keys.
-choose default network 
-create a firewall rule to allow all traffic traffic.
+this ami uses username and password to authenticate the user instead of using ssh keys.   
+choose default network    
+create a firewall rule to allow all traffic traffic.   
 ![firewall rule](image/7-firewall-rule.png)
-18:00 for the installation of web server.
+18:00 for the installation of web server.   
 
-19:00 using of super putty
-
-
-nginx is one of the popular webservers which runs on default port 80
+19:00 using of super putty   
 
 
-## Forward proxy vs reverse proxy 
+nginx is one of the popular webservers which runs on default **port 80**   
 
-
-## dnf vs yum
+## 2.6. dnf vs yum
 
 `dnf` and `yum` are both package managers used in Linux distributions, particularly in RPM-based distributions like Fedora, CentOS, and Red Hat Enterprise Linux (RHEL). Here's a comparison between the two:
 
@@ -152,7 +147,7 @@ nginx is one of the popular webservers which runs on default port 80
 In summary, while both `dnf` and `yum` serve the same purpose of managing packages in RPM-based Linux distributions, `dnf` is the recommended choice for most users due to its improved performance and features. However, `yum` is still used and supported, particularly in older systems where migration to `dnf` might not be feasible or necessary.
 
 
-### connecting to server
+### 2.6.1. connecting to server
 23:23
 
 check using `netstat -lntp`
@@ -183,7 +178,7 @@ deleting files of default nginx
 download the front end content `curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip`
 
 
-curl vs wget
+2.7. curl vs wget
 ------------
 curl is a command line tool that can be used to transfer data from or to a server, using one of the supported protocols (DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMB, SMBS, SMTP, SMTPS, TELNET and TFTP).
 
@@ -199,10 +194,10 @@ Create Nginx Reverse Proxy Configuration.
 
 vim /etc/nginx/default.d/roboshop.conf 
 
+## 2.8. Forward proxy vs reverse proxy 
 
+**forward proxy vs reverse proxy 29:24**
 
-forward proxy vs reverse proxy 29:24
--------------------------------------
 forward proxy is a proxy server that forwards requests to another server.    
 VPN --> virtual private network we use for secure access to the internet and directing traffic to another server    
 
@@ -213,35 +208,35 @@ below is the image of how vpn works
 
 ![VPN](https://media.licdn.com/dms/image/D4E22AQGQuJ39rqSxcQ/feedshare-shrink_2048_1536/0/1706805914121?e=2147483647&v=beta&t=UZ55qCT7AcCLTBmvzjDGmSfCYgzW5uzNQaus3KQOoLk)
 
-Servers are not aware of clients are behind VPN
+Servers are not aware of clients are behind VPN   
 anonymous access --> hiding our identity
 
 
-Forward Proxy 
--------------------------------
+### 2.8.1. Forward Proxy 
 
-Request --> forward proxy --> server <--> response
+**Request --> forward proxy --> server <--> response**
 
 browser connects to the proxy server , so proxy protects the user data Apps cannot see who is accessing.
 
 This is usually to filter data to protect the user privacy and filter the content.
 
-clients are aware of server side
-apps use forward proxy to secure their code
-forward proxies can't understand real clients
+clients are aware of server side   
+apps use forward proxy to secure their code   
+forward proxies can't understand real clients   
 
-reverse proxy
--------------------------------
-clients are not aware of server side
-apps use reverse proxy to secure their code
-load balancing
+
+### 2.8.2. reverse proxy
+
+clients are not aware of server side   
+apps use reverse proxy to secure their code   
+load balancing   
  
 ![Reverse proxy](image/7-reverse-proxy.png)
 
 
 
 
-### Forward Proxy vs Reverse Proxy: Real-Time Examples
+### 2.8.3. Forward Proxy vs Reverse Proxy: Real-Time Examples
 
 ![Forward proxy and reverse proxy](image/7-proxy-vs-reverse-proxy.png)
 
@@ -268,7 +263,7 @@ In essence:
     Forward Proxy: Acts for the client, hides client identity, improves privacy or access.
     Reverse Proxy: Acts for the server, improves server performance and security.
 
-Nginx configuration
+## 2.9. Nginx configuration
 ----
 40:51 copy nginx config of roboshop
 
@@ -280,12 +275,12 @@ http://54.197.5.96/api/catalogue/categories --> querying catalogue to know the p
 
 
 
-HTTP status
+2.10. HTTP status
 --------------------
 2** --> success
 3** --> redirect/temp --> images, gifs are redirected
 
-failure responses
+2.11. failure responses
 -----------------
 400, 404, 403, 402
 
@@ -306,7 +301,7 @@ These are just a few of the many HTTP status codes that exist. You can find a co
 data is cached in browser from time to time for better performance.
 
 
-## caching 50:29
+## 2.12. caching 50:29
 
 Airtel --> 1000 users
 
@@ -315,7 +310,7 @@ so airtel uses cache server -->to deliver bahubali movie
 because same 
 2nd user get from cache server --> more speed
 
-## MongoDB 53:01
+## 2.13. MongoDB 53:01
 
 use **t3 meidum** as mongodb is heavy with SG allowing all traffic
 
@@ -334,7 +329,7 @@ change connections address to the below
 ![alt text](image/7-mongodb-all-connections-allow.png)
 
 check using `netstat -lntp`
-## 127.0.0.1 --> localhost
+## 2.14. 127.0.0.1 --> localhost
 Localhost refers to a special hostname that directs your computer to communicate with itself. It acts like a loopback mechanism, meaning any request sent using "localhost" stays on your machine and isn't routed to the wider internet. Here's why it's significant:
 
     Testing Ground:  Web developers frequently use localhost to test websites and applications they're building. By hosting the website files on their computer and accessing them through localhost in a web browser, they can simulate a real-world experience in a private environment. This allows them to identify and fix bugs without exposing unfinished work to the public.
@@ -345,7 +340,7 @@ Localhost refers to a special hostname that directs your computer to communicate
 
 In essence, localhost provides a safe and isolated environment for developers and users to test, run, and explore various programs and applications before they go live on the internet.
 
-## catalogue installation 1:05:10
+## 2.15. catalogue installation 1:05:10
 
 create a t2.micro and allow all in SG
 
@@ -369,7 +364,7 @@ this will show nginx files
 
 ![nginx service](image/7-nginix-service-location.png)
 
-creating custom systemctl service to create a service 1:15:00
+2.16. creating custom systemctl service to create a service 1:15:00
 ----
 
 ** always give private ip address between servers**
@@ -380,7 +375,7 @@ creating custom systemctl service to create a service 1:15:00
 
 once the url of mongo db is updated reload the deamon by `systemctl daemon-reload` 
 
-## tail command 1:17:38    
+## 2.17. tail command 1:17:38    
 to check running logs `tail -f /var/log/messages`
 
 ![alt text](image/7-mongo-db-tail-command.png)    
@@ -402,41 +397,32 @@ to check logs use `tail -f /var/log/messages` in catalogue server
 
 ![alt text](image/7-tail-fcommandUsage.png)
 
-## 1:21:59 installing mongodb client
+## 2.18. 1:21:59 installing mongodb client
 
 1:22:49 loading catalogue JS
 
 restart the catalogue after loading data by `systemctl restart catalogue`
 
 
+## 2.19. Reverse proxy
 
 
+## 2.20. caching
 
+## 2.21. DB configuration - MONGODB
 
+## 2.22. Catalogue module
 
-
-
-## Reverse proxy
-
-
-## caching
-
-## DB configuration - MONGODB
-
-## Catalogue module
-
-## Assignment
+## 2.23. Assignment
 
 HTTP codes
 Forward proxy vs Reverse proxy
 configure our project
 
-## AMI auth credentials
+## 2.24. AMI auth credentials
 
-devops-practice
-centos/DevOps321
-
-
+**devops-practice   
+centos/DevOps321**
 
 
-## Qeustions 1:24:00 
+## 2.25. Qeustions 1:24:00 
