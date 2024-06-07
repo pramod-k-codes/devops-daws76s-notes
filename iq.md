@@ -153,13 +153,13 @@
 - How do you determine if a subnet is private or public ?
 - What is diff b\w EBS and EFS
 - what is the diff b\w ALB and NLB
- - if I want to run a specific container in pod in Kubernetes how to run it ?
+- if I want to run a specific container in pod in Kubernetes how to run it ?
 - state in terraform ?
 - Remote state in terraform ?
 - what are pipeline stages in your organization ?
 - terraform data block vs resource block ?
 - Entry point vs CMD
- - what is docker file ?
+- what is docker file ?
 - How the pods are communicating with each other ?
 - what is vpc endpoint
 - What are the similarities between SSL and TLS?

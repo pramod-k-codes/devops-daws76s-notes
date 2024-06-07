@@ -411,6 +411,7 @@ However, the content of `<file-name>` will remain unchanged.
 ## Lines update 37:51
 
 `sed -e 's/sbin/SBIN passwd` passwd
+sed -e 's/word-to-find/word-to-replace/' --> by default first occurence in every lines
 
 
 **Shiva-S14 - vid 3 - timestamp 37:51 SED**
