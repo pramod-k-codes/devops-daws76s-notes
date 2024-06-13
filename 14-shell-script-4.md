@@ -422,6 +422,27 @@ if you want it to run globally to replace multiple instances use `g`
 `sed -i 's/sbin/SBIN/g passwd` passwd --> changes sbin to SBIN in passwd file **Globally and permanent**
 sed -e 's/word-to-find/word-to-replace/' --> by default first occurence in every lines
 
+## deleting line in SED
+`sed -e '1d' <file-name>`
 
-**Shiva-S14 - vid 3 - timestamp 37:51 SED**
+`sed -e '2d' <file-name>`'
+
+deletes 1st and 2nd lines
+
+`sed -e '1,2d' <file-name>`
+
+
+**`sed -e '/learning/ d' passwd`**
+
+the above command deletes the line containing text *learning* from file *passwd*
+
+## replacing the local host to point it to internet
+
+change 127.0.0.1 to 0.0.0.0 in etc/mongod.conf
+
+**`sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf`**
+ 
+45:21 redirect output to log file 
+
+**Shiva-S14 - vid 3 - timestamp 43:51 SED**
 
