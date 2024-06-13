@@ -410,7 +410,16 @@ However, the content of `<file-name>` will remain unchanged.
 
 ## Lines update 37:51
 
-`sed -e 's/sbin/SBIN passwd` passwd
+`sed -e 's/sbin/SBIN/ passwd` passwd --> changes sbin to SBIN in passwd file
+
+this replaces only first occurence of sbin to SBIN
+
+if you want it to run globally to replace multiple instances use `g`
+
+`sed -e 's/sbin/SBIN/g passwd` passwd --> changes sbin to SBIN in passwd file **Globally but temproty**
+
+
+`sed -i 's/sbin/SBIN/g passwd` passwd --> changes sbin to SBIN in passwd file **Globally and permanent**
 sed -e 's/word-to-find/word-to-replace/' --> by default first occurence in every lines
 
 
