@@ -441,8 +441,8 @@ the above command deletes the line containing text *learning* from file *passwd*
 change 127.0.0.1 to 0.0.0.0 in etc/mongod.conf
 
 **`sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf`**
- 
+
 45:21 redirect output to log file 
 
-**Shiva-S14 - vid 3 - timestamp 43:51 SED**
+**Shiva-S14 - vid 3 - timestamp 43:51 SED** 
 
