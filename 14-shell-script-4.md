@@ -446,5 +446,6 @@ change 127.0.0.1 to 0.0.0.0 in etc/mongod.conf
 
 **Shiva-S14 - vid 3 - timestamp 43:51 SED**  
 
+I intend to finish this class today on Jun 16 10:31
 
 
