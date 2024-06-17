@@ -1,10 +1,12 @@
 # shell script session 14 Loops in shell
+
 Shiva-S14 - vid 1 - timestamp 04:15
 
 ## parameterizing the installations 05:05
 
 using loops install any no of packages
 --------------------------------------
+
 sh 13-install-packages.sh git mysql gcc postfix net-tools
 
 $# --> no of args
@@ -15,18 +17,16 @@ Steps to install packages , psudo code
 
 1. check root user or not
 2. if root user
-		check package is already installed or not
-			if installed skip it and tell user, already installed
-			if not installe, install it
-			validate it
-	if not root user
-		throw the error 
-
+  check package is already installed or not
+   if installed skip it and tell user, already installed
+   if not installe, install it
+   validate it
+ if not root user
+  throw the error
 
 ### 13:installpackages .sh 8:47
 
 loops explanation 11:47
-
 
 To check if a package is installed using `yum` in a script, you can use an `if` condition to evaluate the output of the `yum list installed` command. Here’s a basic example of how you can do this in a bash script:
 
@@ -42,7 +42,8 @@ else
 fi
 ```
 
-### Explanation:
+### Explanation
+
 1. **`PACKAGE_NAME="your-package-name"`**: Assign the package name to a variable.
 2. **`yum list installed "$PACKAGE_NAME" &> /dev/null`**: This command checks if the package is installed. The `&> /dev/null` part redirects both stdout and stderr to `/dev/null`, effectively silencing the command’s output.
 3. **`if` condition**: The `if` statement checks the exit status of the `yum list installed` command. If the package is installed, the command exits with status `0`, which means the condition evaluates to true.
@@ -58,10 +59,9 @@ chmod +x check_package.sh
 
 Replace `your-package-name` with the actual package name you want to check.
 
+## installing packages through shell script . this took a week for me to script 😊👌(❁´◡`❁)😎
 
-## installing packages through shell script . this took a week for me to script 😊👌(❁´◡`❁)😎 
 ![Celebre the hardwrok](image/dance.png)
-
 
 ```bash
 
@@ -181,78 +181,85 @@ INSTALL_PACKAGES "$@"
 ```
 
 check the script by
-` sh -x 13v1-install-packages.sh ss j iw net-tools uy`
-
-
-
-
+`sh -x 13v1-install-packages.sh ss j iw net-tools uy`
 
 Shiva-S14 - vid 3 - timestamp 27:20
 
 Creation of DB (mongo db ) using shell script manually , we can copy and paste the repo details in the instance using the vim or similar editor
 
-But in shell script the apporach is 
+But in shell script the apporach is
 > create a file which will contain the data you want to upload to a specific loation
 > export it using `cp` command , because editing is not possible with vim in shell and also makes things complicated
-> 
+>
 
-When user is manually creating the DB 
-
+When user is manually creating the DB
 
 Shiva-S14 - vid 3 - timestamp 33:00 SED
 
 Replacing text in existing file is not possible with vim in shell, so we need to use `sed` command to replace the text in the file.
-
 
 ## SED Editor 33:00
 
 In Linux, `sed` (short for **Stream Editor**) is a powerful command-line utility used for parsing and transforming text. It reads input text line by line, performs specified operations on each line, and outputs the modified text. Common operations include searching, replacing, inserting, and deleting text. Here are some typical uses of `sed`:
 
 1. **Substitution**: Replace occurrences of a pattern with a replacement.
+
    ```sh
    sed 's/old/new/' file.txt
    ```
+
    This command replaces the first occurrence of "old" with "new" in each line of `file.txt`.
 
 2. **Global Substitution**: Replace all occurrences of a pattern with a replacement.
+
    ```sh
    sed 's/old/new/g' file.txt
    ```
+
    This command replaces all occurrences of "old" with "new" in each line.
 
 3. **In-place Editing**: Modify the original file directly.
+
    ```sh
    sed -i 's/old/new/g' file.txt
    ```
+
    This command performs a global substitution and saves the changes directly to `file.txt`.
 
 4. **Delete Lines**: Remove lines matching a pattern.
+
    ```sh
    sed '/pattern/d' file.txt
    ```
+
    This command deletes lines containing "pattern" from `file.txt`.
 
 5. **Print Lines**: Print specific lines that match a pattern.
+
    ```sh
    sed -n '/pattern/p' file.txt
    ```
+
    This command prints only the lines that contain "pattern".
 
 6. **Insert or Append Text**: Add text before or after a pattern.
+
    ```sh
    sed '/pattern/i\new line' file.txt
    sed '/pattern/a\new line' file.txt
    ```
+
    The first command inserts "new line" before lines containing "pattern", and the second inserts it after.
 
 7. **Extracting Lines by Number**:
+
    ```sh
    sed -n '5,10p' file.txt
    ```
+
    This command prints lines 5 through 10 from `file.txt`.
 
 `sed` is a versatile tool, especially useful for scripting and automation, as it can handle large files and perform complex text manipulations efficiently.
-
 
 to pracitce make a copy of /etc/passwd file to current dir by
 
@@ -315,7 +322,7 @@ sed is temparory editor
 
 if you want the change to be permananetted, you can use i instead of e
 
-## i VS e 37:00.
+## i VS e 37:00
 
 The `sed` commands you provided both append a line of text after the first line of a file, but there is a key difference between them in terms of how they affect the file. Here's a detailed explanation of each command:
 
@@ -329,13 +336,13 @@ The `sed` commands you provided both append a line of text after the first line 
    - **`I am learning Shell script`**: The text to be appended.
 4. **`<file-name>`**: The input file to be modified.
 
-### What it does:
+### What it does
 
 - This command reads `<file-name>`.
 - It appends "I am learning Shell script" after the first line.
 - The file `<file-name>` is modified in place, meaning the changes are saved directly to the file.
 
-### Example:
+### Example
 
 Suppose `<file-name>` contains:
 
@@ -370,13 +377,13 @@ Line 3
    - **`I am learning Shell script`**: The text to be appended.
 4. **`<file-name>`**: The input file to be processed.
 
-### What it does:
+### What it does
 
 - This command reads `<file-name>`.
 - It appends "I am learning Shell script" after the first line.
 - The changes are not saved to `<file-name>`; instead, the modified content is sent to the standard output (typically the terminal).
 
-### Example:
+### Example
 
 Suppose `<file-name>` contains:
 
@@ -418,11 +425,11 @@ if you want it to run globally to replace multiple instances use `g`
 
 `sed -e 's/sbin/SBIN/g passwd` passwd --> changes sbin to SBIN in passwd file **Globally but temproty**
 
-
 `sed -i 's/sbin/SBIN/g passwd` passwd --> changes sbin to SBIN in passwd file **Globally and permanent**
 sed -e 's/word-to-find/word-to-replace/' --> by default first occurence in every lines
 
 ## deleting line in SED
+
 `sed -e '1d' <file-name>`
 
 `sed -e '2d' <file-name>`'
@@ -430,7 +437,6 @@ sed -e 's/word-to-find/word-to-replace/' --> by default first occurence in every
 deletes 1st and 2nd lines
 
 `sed -e '1,2d' <file-name>`
-
 
 **`sed -e '/learning/ d' passwd`**
 
@@ -442,10 +448,14 @@ change 127.0.0.1 to 0.0.0.0 in etc/mongod.conf
 
 **`sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf`**
 
-45:21 redirect output to log file 
+validate after sed command  
+
+45:21 redirect output to log file
+
+restart and mongo db using shell and validate
 
 **Shiva-S14 - vid 3 - timestamp 43:51 SED**  
 
-I intend to finish this class today on Jun 16 10:31
+I intend to finish this class today on Jun 16 10 :31
 
-
+## 49:52 catalogue.sh  

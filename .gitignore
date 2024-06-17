@@ -1,2 +1,6 @@
 practice-logs/*
 *.log
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/devops-daws76s-notes.iml
