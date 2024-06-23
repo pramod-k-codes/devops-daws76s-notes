@@ -456,6 +456,10 @@ restart and mongo db using shell and validate
 
 **Shiva-S14 - vid 3 - timestamp 43:51 SED**  
 
-I intend to finish this class today on Jun 16 10 :31
+**I intend to finish this class today on Jun 16 10 :31**
+**well today is june 23 22:57 and i have not completed this video so i strated to read for 3 mins**
+49:50 break
 
 ## 49:52 catalogue.sh  
+
+**stopping at 22:59 to avoid issue to health due to blue light**
