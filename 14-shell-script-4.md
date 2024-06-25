@@ -463,3 +463,11 @@ restart and mongo db using shell and validate
 ## 49:52 catalogue.sh  
 
 **stopping at 22:59 to avoid issue to health due to blue light**
+
+I've not read yesteday because i was not prioritizing the study started on jun 25
+
+catalogue command and validate
+
+**55:50 use absolute path for catalouge service**
+
+57:38
