@@ -458,6 +458,23 @@ restart and mongo db using shell and validate
 
 **I intend to finish this class today on Jun 16 10 :31**
 **well today is june 23 22:57 and i have not completed this video so i strated to read for 3 mins**
+
+mongo db configuration commands mongodb.sh
+
+use command and then validate 
+
+commmands with the validations and colors is the best way to use shell script
+
+
+47:11
+
+test the monogo db script by cloning the repo from the git 
+
+48:24 mogodb installation successful, cheking using netstat -lntp
+
+
+49:39 break 
+
 49:50 break
 
 ## 49:52 catalogue.sh  
@@ -466,8 +483,23 @@ restart and mongo db using shell and validate
 
 I've not read yesteday because i was not prioritizing the study started on jun 25
 
-catalogue command and validate
+**catalogue command and validate**
+
+50:01 catalogue.sh creation
+
+53:11 - catalogue.service file creation
+
+53:50 - R53 creation for catalogue server - 
+
+54:53 check directory before running command , either navigate to the proper directory or use absolute path **56:09**
 
 **55:50 use absolute path for catalouge service**
 
 57:38
+
+58:55 installation of mongodb shell
+installation of mongodb client 
+
+1:00:53 catalogue server creation and installation of script
+
+**Shiva-S14 - vid 3 - timestamp 1:00:53 installation of catalogue and creation of server**  
