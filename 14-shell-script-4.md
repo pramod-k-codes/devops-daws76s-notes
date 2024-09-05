@@ -522,3 +522,11 @@ check if user is created or not if already created then dont create
 if directory is available dont create it again
 
 1:12:57 will continue studying in the evening after coming from office at 8:30 pm till 9:30 pm 09-05-2024
+
+you know the funny thing ! :) for some reason i opened laptop at 8:30 to study
+
+```but unforutnately i didnt study but i created the amazon account so that i can practice while studying . 
+
+why is this important ? Because i get distacted while listening to lecture, and my mind goes numb, to make it active and to complete class directly i am doing this.
+
+i will start reading at tomorrow at 7: 30 am i.e. sep -06-2024 tomorrow, i will complete the class no 14```
