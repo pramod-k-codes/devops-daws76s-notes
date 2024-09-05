@@ -502,4 +502,23 @@ installation of mongodb client
 
 1:00:53 catalogue server creation and installation of script
 
-**Shiva-S14 - vid 3 - timestamp 1:00:53 installation of catalogue and creation of server**  
+**Shiva-S14 - vid 3 - timestamp 1:00:53 installation of catalogue and creation of server **  
+**Started reading on today sep 05 2024 at 11:12 AM**
+1:1:33 catalogue server creation with SG - allowing all ports
+
+connect to the catalogue server using putty client and clone the code into catalogue server (1:03:20)
+
+fixing the catalogue.sh file (1:04:00) because we have to log the installation not the validation
+
+debugging of catalogue app 1:08:47
+
+
+1:09:20 unzipping and overwriting files if exists with modifier unzip -o 
+
+1:11:14 improvements
+
+check if user is created or not if already created then dont create
+
+if directory is available dont create it again
+
+1:12:57 will continue studying in the evening after coming from office at 8:30 pm till 9:30 pm 09-05-2024
