@@ -1,0 +1,1 @@
+Transform the content of this publicly hosted file [insert file URL] into a structured format with topics, subtopics, detailed explanations, real-time industry examples, code snippets, and Q&A notes. Organize the content into an easy-to-review format, including an overview of topics and key points for revision.
