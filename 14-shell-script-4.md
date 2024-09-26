@@ -185,7 +185,11 @@ check the script by
 
 Shiva-S14 - vid 3 - timestamp 27:20
 
-Creation of DB (mongo db ) using shell script manually , we can copy and paste the repo details in the instance using the vim or similar editor
+**alternative to copy pasting repo detaoils in instances**
+
+Creation of DB (mongo db ) using shell script manually:
+
+ we copy and paste the repo details in the instance using the vim or similar editor when we are doing it manually
 
 But in shell script the apporach is
 > create a file which will contain the data you want to upload to a specific loation
@@ -322,7 +326,7 @@ sed is temparory editor
 
 if you want the change to be permananetted, you can use i instead of e
 
-## i VS e 37:00
+## i VS e flag usage in SED editor 37:00
 
 The `sed` commands you provided both append a line of text after the first line of a file, but there is a key difference between them in terms of how they affect the file. Here's a detailed explanation of each command:
 
@@ -442,7 +446,7 @@ deletes 1st and 2nd lines
 
 the above command deletes the line containing text *learning* from file *passwd*
 
-## replacing the local host to point it to internet
+## replacing the local host to point it to internet 44:08
 
 change 127.0.0.1 to 0.0.0.0 in etc/mongod.conf
 
@@ -450,7 +454,7 @@ change 127.0.0.1 to 0.0.0.0 in etc/mongod.conf
 
 validate after sed command  
 
-45:21 redirect output to log file
+**45:21 redirect output to log file**
 
 restart and mongo db using shell and validate
 
@@ -530,3 +534,22 @@ you know the funny thing ! :) for some reason i opened laptop at 8:30 to study
 why is this important ? Because i get distacted while listening to lecture, and my mind goes numb, to make it active and to complete class directly i am doing this.
 
 i will start reading at tomorrow at 7: 30 am i.e. sep -06-2024 tomorrow, i will complete the class no 14```
+
+
+if you dont plan your day , you dont have it under control, others (people ) or apps will steal your time
+
+How i started stuying today ?
+
+created a self meeting at 11:30 am to 12 am so that i can study by planning the next 30 mins
+
+
+```
+
+
+## My attention span is 20 mins 
+I tried to study more than 20 mins in one strech and i observed that i am slacking off not focussing,
+
+take a break
+
+since its almost 12 pm (11:54) I will pause the study and resume later in the evening based on what time i return to home 
+ on [9/26/2024] at [11:58:51].
