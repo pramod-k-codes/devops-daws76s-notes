@@ -17,12 +17,12 @@ Steps to install packages , psudo code
 
 1. check root user or not
 2. if root user
-  check package is already installed or not
+   check package is already installed or not
    if installed skip it and tell user, already installed
    if not installe, install it
    validate it
- if not root user
-  throw the error
+   if not root user
+   throw the error
 
 ### 13:installpackages .sh 8:47
 
@@ -181,20 +181,20 @@ INSTALL_PACKAGES "$@"
 ```
 
 check the script by
-`sh -x 13v1-install-packages.sh ss j iw net-tools uy`
+`<font color="#000000">sh -x 13v1-install-packages.sh ss j iw net-tools uy</font>`
 
 Shiva-S14 - vid 3 - timestamp 27:20
 
-**alternative to copy pasting repo detaoils in instances**
+**alternative to copy pasting repo details in instances**
 
 Creation of DB (mongo db ) using shell script manually:
 
  we copy and paste the repo details in the instance using the vim or similar editor when we are doing it manually
 
-But in shell script the apporach is
-> create a file which will contain the data you want to upload to a specific loation
+But in shell script the approach is
+
+> create a file which will contain the data you want to upload to a specific location
 > export it using `cp` command , because editing is not possible with vim in shell and also makes things complicated
->
 
 When user is manually creating the DB
 
@@ -213,7 +213,6 @@ In Linux, `sed` (short for **Stream Editor**) is a powerful command-line utility
    ```
 
    This command replaces the first occurrence of "old" with "new" in each line of `file.txt`.
-
 2. **Global Substitution**: Replace all occurrences of a pattern with a replacement.
 
    ```sh
@@ -221,7 +220,6 @@ In Linux, `sed` (short for **Stream Editor**) is a powerful command-line utility
    ```
 
    This command replaces all occurrences of "old" with "new" in each line.
-
 3. **In-place Editing**: Modify the original file directly.
 
    ```sh
@@ -229,7 +227,6 @@ In Linux, `sed` (short for **Stream Editor**) is a powerful command-line utility
    ```
 
    This command performs a global substitution and saves the changes directly to `file.txt`.
-
 4. **Delete Lines**: Remove lines matching a pattern.
 
    ```sh
@@ -237,7 +234,6 @@ In Linux, `sed` (short for **Stream Editor**) is a powerful command-line utility
    ```
 
    This command deletes lines containing "pattern" from `file.txt`.
-
 5. **Print Lines**: Print specific lines that match a pattern.
 
    ```sh
@@ -245,7 +241,6 @@ In Linux, `sed` (short for **Stream Editor**) is a powerful command-line utility
    ```
 
    This command prints only the lines that contain "pattern".
-
 6. **Insert or Append Text**: Add text before or after a pattern.
 
    ```sh
@@ -254,7 +249,6 @@ In Linux, `sed` (short for **Stream Editor**) is a powerful command-line utility
    ```
 
    The first command inserts "new line" before lines containing "pattern", and the second inserts it after.
-
 7. **Extracting Lines by Number**:
 
    ```sh
@@ -452,36 +446,34 @@ change 127.0.0.1 to 0.0.0.0 in etc/mongod.conf
 
 **`sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf`**
 
-validate after sed command  
+validate after sed command
 
 **45:21 redirect output to log file**
 
 restart and mongo db using shell and validate
 
-**Shiva-S14 - vid 3 - timestamp 43:51 SED**  
+**Shiva-S14 - vid 3 - timestamp 43:51 SED**
 
 **I intend to finish this class today on Jun 16 10 :31**
 **well today is june 23 22:57 and i have not completed this video so i strated to read for 3 mins**
 
 mongo db configuration commands mongodb.sh
 
-use command and then validate 
+use command and then validate
 
 commmands with the validations and colors is the best way to use shell script
 
-
 47:11
 
-test the monogo db script by cloning the repo from the git 
+test the monogo db script by cloning the repo from the git
 
 48:24 mogodb installation successful, cheking using netstat -lntp
 
-
-49:39 break 
+49:39 break
 
 49:50 break
 
-## 49:52 catalogue.sh  
+## 49:52 catalogue.sh
 
 **stopping at 22:59 to avoid issue to health due to blue light**
 
@@ -493,7 +485,7 @@ I've not read yesteday because i was not prioritizing the study started on jun 2
 
 53:11 - catalogue.service file creation
 
-53:50 - R53 creation for catalogue server - 
+53:50 - R53 creation for catalogue server -
 
 54:53 check directory before running command , either navigate to the proper directory or use absolute path **56:09**
 
@@ -502,11 +494,11 @@ I've not read yesteday because i was not prioritizing the study started on jun 2
 57:38
 
 58:55 installation of mongodb shell
-installation of mongodb client 
+installation of mongodb client
 
 1:00:53 catalogue server creation and installation of script
 
-**Shiva-S14 - vid 3 - timestamp 1:00:53 installation of catalogue and creation of server **  
+**Shiva-S14 - vid 3 - timestamp 1:00:53 installation of catalogue and creation of server **
 **Started reading on today sep 05 2024 at 11:12 AM**
 1:1:33 catalogue server creation with SG - allowing all ports
 
@@ -516,8 +508,7 @@ fixing the catalogue.sh file (1:04:00) because we have to log the installation n
 
 debugging of catalogue app 1:08:47
 
-
-1:09:20 unzipping and overwriting files if exists with modifier unzip -o 
+1:09:20 unzipping and overwriting files if exists with modifier unzip -o
 
 1:11:14 improvements
 
@@ -529,7 +520,7 @@ if directory is available dont create it again
 
 you know the funny thing ! :) for some reason i opened laptop at 8:30 to study
 
-```but unforutnately i didnt study but i created the amazon account so that i can practice while studying . 
+```but
 
 why is this important ? Because i get distacted while listening to lecture, and my mind goes numb, to make it active and to complete class directly i am doing this.
 
@@ -545,11 +536,12 @@ created a self meeting at 11:30 am to 12 am so that i can study by planning the 
 
 ```
 
+## My attention span is 20 mins
 
-## My attention span is 20 mins 
-I tried to study more than 20 mins in one strech and i observed that i am slacking off not focussing,
+I tried to study more than 20 mins in one stretch and i observed that i am slacking off not focusing,
 
 take a break
 
-since its almost 12 pm (11:54) I will pause the study and resume later in the evening based on what time i return to home 
+since its almost 12 pm (11:54) I will pause the study and resume later in the evening based on what time i return to home
  on [9/26/2024] at [11:58:51].
+ ===============================================================

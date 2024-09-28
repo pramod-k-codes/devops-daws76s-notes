@@ -1,0 +1,47 @@
+/* General styling for all code elements (inline and block) */
+code,
+pre {
+    color: black !important;
+    /* Make text color black */
+    background-color: white !important;
+    /* Set background color to white */
+    font-weight: bold !important;
+    /* Make the text bold */
+}
+
+/* Specifically target inline code snippets */
+.inline-code {
+    color: black !important;
+    font-weight: bold !important;
+    background-color: white !important;
+}
+
+/* Force all syntax highlighting elements to black */
+.comment,
+.keyword,
+.string,
+.builtin,
+.number,
+.constant {
+    color: black !important;
+    font-weight: bold !important;
+}
+
+/* Increase the font size for regular text */
+body {
+    font-size: 18px !important;
+    /* Change 18px to any size you prefer */
+}
+
+/* Increase font size for code blocks */
+code,
+pre {
+    font-size: 16px !important;
+    /* Adjust this size to your preference */
+}
+
+/* Increase font size for inline code */
+.inline-code {
+    font-size: 16px !important;
+    /* Adjust this size as needed */
+}

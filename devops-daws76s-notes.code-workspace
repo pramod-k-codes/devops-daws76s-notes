@@ -2,6 +2,13 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../python-for-devops-abhishek-veeramalla"
 		}
+	],
+	"settings": {},
+	"markdown.styles": [
+		"file://custom-config/typroa_mardkown_custom-css-config.css"
 	]
 }
