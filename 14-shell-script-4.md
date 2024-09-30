@@ -548,3 +548,7 @@ since its almost 12 pm (11:54) I will pause the study and resume later in the ev
 **mkdir -p /app**
 
 creates directory if not available checks for directory creation first
+
+once server is created check  **`netstat -lntp`**
+sudo less /var/log/messages - to check if mongo db is connected
+
