@@ -477,7 +477,7 @@ test the monogo db script by cloning the repo from the git
 
 **stopping at 22:59 to avoid issue to health due to blue light**
 
-I've not read yesteday because i was not prioritizing the study started on jun 25
+I've not read yesterday because i was not prioritizing the study started on jun 25
 
 **catalogue command and validate**
 
@@ -550,5 +550,16 @@ since its almost 12 pm (11:54) I will pause the study and resume later in the ev
 creates directory if not available checks for directory creation first
 
 once server is created check  **`netstat -lntp`**
-sudo less /var/log/messages - to check if mongo db is connected
+`**sudo less /var/log/messages**` - to check if mongo db is connected
+
+run script again and check if mongo db is connected by checking logs using above command
+
+
+check if nodejs 18 installed by dnf list installed nodejs
+
+you can check if mongodb already available or not
+
+redis user cart in next video 
+
+completed on date 09/30/2024 at 11:50:04 am
 
