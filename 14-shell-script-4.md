@@ -545,3 +545,6 @@ take a break
 since its almost 12 pm (11:54) I will pause the study and resume later in the evening based on what time i return to home
  on [9/26/2024] at [11:58:51].
  ===============================================================
+**mkdir -p /app**
+
+creates directory if not available checks for directory creation first
