@@ -13,13 +13,38 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "14-shell-script-4.md",
+                "file": "7-project-manual-deployment.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "52b1c8947d9ba0f0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "7-project-manual-deployment.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "24e75aa7d46cf4f1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "7-project-manual-deployment.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -85,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "14-shell-script-4.md",
+                "file": "7-project-manual-deployment.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "14-shell-script-4.md",
+                "file": "7-project-manual-deployment.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "14-shell-script-4.md"
+                "file": "7-project-manual-deployment.md"
               }
             }
           }
@@ -150,6 +175,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "48ff57b4ff577602",
-  "lastOpenFiles": []
+  "active": "24e75aa7d46cf4f1",
+  "lastOpenFiles": [
+    "1-introduction.md",
+    "15-class.md",
+    "14-shell-script-4.md"
+  ]
 }
