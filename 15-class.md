@@ -15,7 +15,7 @@ open roboshop documentation, get a domain
 update the r53 records
 
 
-# Stpping the script execution on failure **`set -e`**
+# Stopping the script execution on failure **`set -e`**
 
 ## Purpose of `set -e`
 

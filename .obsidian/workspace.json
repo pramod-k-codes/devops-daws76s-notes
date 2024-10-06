@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "7-project-manual-deployment.md",
+                "file": "15-class.md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "7-project-manual-deployment.md",
+                "file": "15-class.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "7-project-manual-deployment.md",
+                "file": "15-class.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "7-project-manual-deployment.md"
+                "file": "15-class.md"
               }
             }
           }
@@ -177,6 +177,7 @@
   },
   "active": "24e75aa7d46cf4f1",
   "lastOpenFiles": [
+    "7-project-manual-deployment.md",
     "34.204.70.5-22_10-05-131400-putty.log",
     "54.165.121.173-22_10-04-162253-putty.log",
     "1-introduction.md",
