@@ -1,3 +1,5 @@
 #!/bin/bash
 set -x
-df -dT
+DISK_LIST=$(df -hT | grep -vE 'tmp|File')
+
+echo -e "current disc usage data is $DISK_LIST"
