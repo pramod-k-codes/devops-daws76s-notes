@@ -575,6 +575,45 @@ Command Summary:
 
     Finding disk usage
 
+ **`df -hT | grep -vE 'tmp|File' | awk {'print $6'} | cut -d % -f1` . I didnt understand cut -d % -f1 why it works how it works**
+
+You're right to be curious about `cut -d % -f1`! It's a clever way to extract the disk usage percentage from the output of `df`. Let's break it down:
+
+**The Pipeline**
+
+First, remember that the entire command is a pipeline:
+
+1. `df -hT`: Lists filesystems with human-readable sizes and filesystem types.
+2. `grep -vE 'tmp|File'`: Filters out lines containing "tmp" or "File" (likely temporary filesystems).
+3. `awk {'print $6'}`: Prints the 6th column (the "Use%" column).
+4. `cut -d % -f1`: This is where the magic happens!
+
+**`cut -d % -f1` Explained**
+
+* **`cut`** : This command is designed to extract portions of text from each line of input.
+* **`-d %`** : This sets the "delimiter" to the percent sign (`%`). Think of a delimiter as a separator between fields of data on a line.
+* **`-f1`** : This tells `cut` to extract only the "first field" based on the delimiter.
+
+**How It Works**
+
+Let's imagine a line of output from the previous stages of the pipeline:
+
+```plaintext
+/dev/sda1       ext4       50G   20G   30G  40% /
+```
+
+1. **Delimiter:** `cut -d %` sees the `%` sign as the delimiter, dividing the line into two fields:
+   * Field 1: `/dev/sda1 ext4 50G 20G 30G 40`
+   * Field 2: `/` (the space and the mount point)
+2. **Field Selection:** `-f1` instructs `cut` to keep only the first field.
+
+**Result:** The command outputs `40`, effectively extracting the disk usage percentage.
+
+**Why It's Useful**
+
+This technique is powerful because it lets you easily isolate specific pieces of information from command output, even if the output format isn't perfectly consistent.
+
+
 
 ```bash
 #!/bin/bash
