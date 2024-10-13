@@ -1,7 +1,6 @@
 creation of 5 instances with allow all SG
 
-
-* web t2-micro
+  * web t2-micro
 * catalogue t2-micro
 * user t2-micro
 * cart t2-micro
@@ -13,7 +12,6 @@ creation of 5 instances with allow all SG
 open roboshop documentation, get a domain
 
 update the r53 records
-
 
 # Stopping the script execution on failure **`set -e`**
 
@@ -61,7 +59,6 @@ With `set -e`, once the `ls /non/existent/directory` command fails, the script w
 - Ideal for deployment scripts or installation scripts where a failure in one step should stop the entire process.
 
 Would you like to explore other related options like `set -x` (for debugging) or `trap` for handling failures?
-
 
 ## set -x set -e trap
 
@@ -175,3 +172,10 @@ echo "This will not run because of set -e."
 ```
 
 Would you like to try combining these features into a script for a specific task? Or would you like further clarification on any of these commands?
+
+
+Disadvantage in shell script - we need to check each statement is executed successfully or not ( if you are not using set -e)
+
+when you are using set -e it will exit when command fails
+
+alternative to adding &>>$LOGFILE is using statment `exec &>$$LOGFILE`
