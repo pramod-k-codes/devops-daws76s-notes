@@ -1,5 +1,5 @@
 # You are what you think , 
-what you think is the barrior set by your mind , and it is the barrior that you have to overcome to get to the top.
+what you think is the barrier set by your mind , and it is the barrier that you have to overcome to get to the top.
 
 why do you think is what you are and the actions will define what you will be. Have good habits have a good life.
 
@@ -18,7 +18,7 @@ current date and time - 2024-05-21 06:56:55
 - long way to go, lots of things to learn
 - its a steep learning curve
 - Its painful
-- No guidence , i have to learn by myself and its trial and error
+- No guidance , i have to learn by myself and its trial and error
 
 
 # How will you upskill and resume prep
