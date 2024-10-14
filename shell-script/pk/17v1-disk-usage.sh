@@ -18,7 +18,7 @@ while IFS= read line ;do
    # DISC_NAME=$(DISK_DATA | awk '{print$1}') is wrong because you are not reading variable you need to echo to get output
    # DISC_NAME=$(echo DISK_DATA | awk '{print$1}') is wrong because you are not reading value of variable
   DISK_USAGE=$(echo "$DISK_DATA" | awk '{print$6F}')
-  if [ "$DISK_USAGE" -ge 1 ]; then
+  if [ $DISK_USAGE -ge 1 ]; then
       echo -e "## Disk usage of Disk $DISC_NAME is $DISK_USAGE which is greater than the threshold ##"
   fi
 done <<< "$DISK_DATA"
