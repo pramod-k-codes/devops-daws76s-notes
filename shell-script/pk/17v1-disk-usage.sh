@@ -14,10 +14,10 @@ echo -e "current disc usage $DISK_USAGE"
 #while IFS =read line #Also invalid statement because of space before assignment symbol = which makes assignment 'IFS ='
 # the following line is correctly working not sure why, because this has a space after = making it 'IFS= ' in statement which should not work because this is as signing space to IFS as per my knowledge
 while IFS= read line ;do
-  DISC_NAME=$(echo "$line" | awk '{print$1F}')
+  DISC_NAME=$(echo "$line" | awk '{print$1}')
    # DISC_NAME=$(DISK_DATA | awk '{print$1}') is wrong because you are not reading variable you need to echo to get output
    # DISC_NAME=$(echo DISK_DATA | awk '{print$1}') is wrong because you are not reading value of variable
-  DISK_USAGE=$(echo "$line" | awk '{print$6F}')
+  DISK_USAGE=$(echo "$line" | awk '{print$6}')
 #  echo -e "current disc data $DISK_DATA"
 #  echo -e "current disc name  $DISC_NAME"
 #  echo -e "current disc usage $DISK_USAGE"
