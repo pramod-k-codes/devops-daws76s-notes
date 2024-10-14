@@ -1,4 +1,3 @@
-
 ### Class 16 Shell Scripting Notes
 
 ---
@@ -190,7 +189,6 @@ find /tmp/shell-script-logs -type f -name "*.log" -mtime +14 -exec rm -rf {} \;
 
 `explain this ------- IFS= read -r line`
 
-
 That code snippet is used in Bash scripting for reading a line of text from standard input (usually the terminal) and storing it in a variable called `line`. Let's break it down:
 
 * **`IFS=`** : This part temporarily sets the "Internal Field Separator" (IFS) to an empty value for the duration of the `read` command. IFS normally dictates how Bash splits a line of text into words, often using spaces, tabs, and newlines. By setting it to empty, we ensure that the entire line, including any spaces, is read into the variable without being split.
@@ -207,7 +205,6 @@ IFS= read -r line
 echo "You entered: $line"
 
 ```
-
 
 If you input "Hello world with spaces!", the output would be:
 
@@ -251,8 +248,6 @@ done < $file  # Redirect input from the specified file
 
 ```
 
-
-
 **Explanation****:**
 
 1. **Header:**
@@ -279,7 +274,6 @@ done < $file  # Redirect input from the specified file
 
 **In summary, this script reads the `/etc/passwd` file, checks if it exists, and then prints the username, user ID, and full name for each user account in the file.**
 
-
 ---
 
 ### 7. **Managing Disk Usage 28:45**
@@ -298,8 +292,6 @@ Filesystem      Type  Size  Used Avail Use% Mounted on
 /dev/sdb1       ext4  931G  722G  209G  78% /home
 
 ```
-
-
 
 * `df -h` is the basic command for displaying disk space usage in a human-readable format.
 * `df -hT` provides the same information as `df -h` but also includes the file system type
@@ -337,7 +329,7 @@ Monitoring servers is critical to avoid system crashes due to high memory or dis
 
 ### 8. **Handling Hard Disk Drives (HDD) and Network Drives**
 
-**Addition of volumes to instance** 
+**Addition of volumes to instance**
 
 **To mount a vloume the volume must be in same avilability zone**
 
@@ -385,8 +377,7 @@ xvdf
 
 `lsblk -p` will reveal the full path
 
-create file system by using mkfs 
-
+create file system by using mkfs
 
 `mkfs -t xfs /dev/xvdf`
 
@@ -398,7 +389,6 @@ mkdir: cannot create directory ‘data’: File exists
 
 34.204.84.67 | 172.31.32.238 | t2.micro | null
 [ root@ip-172-31-32-238 ~ ]#
-
 
 Mounting the external drive
 
@@ -412,9 +402,7 @@ mount the volume into directory
 
 if you encounter error check file system by `sudo fsck /dev/xvdf`
 
-
 **df -hT vs lsblk -f**
-
 
 The differences between `df -hT` and `lsblk -f`, both useful commands for inspecting storage devices and filesystems in Linux. Here's a comparison:
 
@@ -446,9 +434,9 @@ The differences between `df -hT` and `lsblk -f`, both useful commands for inspec
 * **Example:**
   ```plaintext
   NAME   FSTYPE   LABEL    UUID                                   MOUNTPOINT
-  sda                                                             
+  sda                                                           
   └─sda1 ext4     rootfs   some-long-uuid                         /
-  sdb                                                             
+  sdb                                                           
   └─sdb1 xfs      data     another-uuid                          /data
   sr0    iso9660            yet-another-uuid                       /mnt/cdrom 
   ```
@@ -570,7 +558,6 @@ Command Summary:
      /dev/xvdf      xfs       100G  746M  100G   1% /data
      ```
 
-
 ### Disk usage 41:00
 
     Finding disk usage
@@ -613,6 +600,49 @@ Let's imagine a line of output from the previous stages of the pipeline:
 
 This technique is powerful because it lets you easily isolate specific pieces of information from command output, even if the output format isn't perfectly consistent.
 
+
+### DO WHILE loop
+
+statement `while IFS= read line` is correct because of following explanation among the following statements
+
+
+```bash
+while IFS=read line # no spaces correct assignment such as DISKNAME="11" but this statement fails to read lines
+while IFS= read line # this is correctly working not sure why, because this has a space after = making it 'IFS= ' in statement which should not work because this is as signing space to IFS as per my knowledge
+while IFS = read line #This is syntax error because assignment should not have spaces around = in bash which makes assignment 'IFS = read line'
+while IFS =read line #Also invalid statement because of space before assignment symbol = which makes assignment 'IFS ='
+```
+
+
+
+Let's break down each of these statements and explain why they work or don't work:
+
+1. `while IFS=read line`
+   This statement doesn't work as intended. Here's why:
+
+   - In Bash, variable assignments should not have spaces around the `=` sign.
+   - This actually assigns the string "read" to the IFS variable, and then tries to execute "line" as a command.
+   - It doesn't read lines from input as intended.
+2. `while IFS= read line`
+   This statement works correctly. Here's the explanation:
+
+   - This sets IFS to an empty string (not a space).
+   - The space after `=` is not part of the assignment; it separates the IFS assignment from the `read` command.
+   - Setting IFS to an empty string before `read` preserves leading/trailing whitespace in the input.
+3. `while IFS = read line`
+   This is indeed a syntax error. Here's why:
+
+   - In Bash, variable assignments must not have spaces around the `=` sign.
+   - This tries to run a command named "IFS" with "=" and "read" as arguments, followed by running "line" as another command.
+4. `while IFS =read line`
+   This is also invalid. Here's the explanation:
+
+   - The space before `=` makes Bash interpret "IFS" as a command to run.
+   - It then tries to run a command named "=read" with "line" as an argument.
+
+The correct and commonly used form is `while IFS= read -r line`. The `-r` option prevents backslash escapes from being interpreted, which is usually desired when reading arbitrary input.
+
+To clarify your understanding: in `IFS= read line`, the IFS assignment and the `read` command are two separate operations. The assignment sets IFS to an empty string, and then the `read` command is executed with this IFS setting in effect.
 
 
 ```bash
