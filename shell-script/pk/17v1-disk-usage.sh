@@ -1,5 +1,5 @@
 #!/bin/bash
-# set -xe
+ set -xe
 DISK_DATA=$(df -hT | grep -vE 'tmp|File' | cut -d % -f1)
 #DISC_NAME=$(echo "$DISK_DATA" | awk '{print$1}')
  # DISC_NAME=$(DISK_DATA | awk '{print$1}') is wrong because you are not reading variable you need to echo to get output
