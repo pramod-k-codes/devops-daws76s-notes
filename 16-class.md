@@ -728,9 +728,31 @@ sh mail.sh "DevOps Team" "High Disk Usage" "$message" "info@joindevops.com" "ALE
    - As the script loops through each line of the disk usage report, it constructs a message by appending alerts for any partitions exceeding the threshold.
    - The `<br>` HTML tag is included to ensure the message will display properly if it's sent as an HTML-formatted email.
 
-### Summary:
+###### Summary:
 
 This script monitors disk usage by reading the output of the `df -hT` command, excluding temporary filesystems. For each partition, it checks if the disk usage exceeds a predefined threshold. If it does, the script constructs a message detailing the partitions with high usage. It can optionally send this message via email to a designated recipient. The `while` loop, `<<<` operator, and `+=` string appending allow the script to efficiently process the output and build a detailed alert message.
+
+### Email Alerts
+
+companies use email servers to send email alerts ,like tcs uses tcs email server @tcs.com rather than @gmail
+
+we use POSFIX to hit gmail 
+
+cyrus-sasl-plain - for auth
+
+mailx  command to send ema il
+
+from address - since we are sending without login in server so i use pramoddev46@gmail.com ( we need an email provider which is registered to send email so valid email , in companies it team will give it)
+
+generate app password from your gmail - google > security> and copy the password (remove spaces)
+
+
+
+
+
+
+
+
 
 ### 10. **Example Script for Deleting or Archiving Logs**
 

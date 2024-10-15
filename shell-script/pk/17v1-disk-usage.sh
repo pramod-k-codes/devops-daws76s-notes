@@ -23,8 +23,11 @@ while IFS= read line ;do
 #  echo -e "current disc usage $DISK_USAGE"
   if [ "$DISK_USAGE" -ge 1 ]; then
       echo -e "## Disk usage of Disk $DISC_NAME is $DISK_USAGE which is greater than the threshold ##"
+      echo "## Disk usage of Disk $DISC_NAME is $DISK_USAGE which is greater than the threshold ## $(date)" | mail -s "message" pramoddev46@gmail.com #this sends an email
+#      configure it from https://github.com/daws-76s/concepts/blob/master/gmail.MD
   fi
 done <<< "$DISK_DATA"
+
 
 
 
