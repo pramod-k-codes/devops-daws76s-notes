@@ -434,9 +434,9 @@ The differences between `df -hT` and `lsblk -f`, both useful commands for inspec
 * **Example:**
   ```plaintext
   NAME   FSTYPE   LABEL    UUID                                   MOUNTPOINT
-  sda                                                           
+  sda                                                       
   └─sda1 ext4     rootfs   some-long-uuid                         /
-  sdb                                                           
+  sdb                                                       
   └─sdb1 xfs      data     another-uuid                          /data
   sr0    iso9660            yet-another-uuid                       /mnt/cdrom 
   ```
@@ -600,11 +600,9 @@ Let's imagine a line of output from the previous stages of the pipeline:
 
 This technique is powerful because it lets you easily isolate specific pieces of information from command output, even if the output format isn't perfectly consistent.
 
-
 ### DO WHILE loop
 
 statement `while IFS= read line` is correct because of following explanation among the following statements
-
 
 ```bash
 while IFS=read line # no spaces correct assignment such as DISKNAME="11" but this statement fails to read lines
@@ -612,8 +610,6 @@ while IFS= read line # this is correctly working not sure why, because this has 
 while IFS = read line #This is syntax error because assignment should not have spaces around = in bash which makes assignment 'IFS = read line'
 while IFS =read line #Also invalid statement because of space before assignment symbol = which makes assignment 'IFS ='
 ```
-
-
 
 Let's break down each of these statements and explain why they work or don't work:
 
@@ -643,7 +639,6 @@ Let's break down each of these statements and explain why they work or don't wor
 The correct and commonly used form is `while IFS= read -r line`. The `-r` option prevents backslash escapes from being interpreted, which is usually desired when reading arbitrary input.
 
 To clarify your understanding: in `IFS= read line`, the IFS assignment and the `read` command are two separate operations. The assignment sets IFS to an empty string, and then the `read` command is executed with this IFS setting in effect.
-
 
 ```bash
 #!/bin/bash
@@ -736,7 +731,7 @@ This script monitors disk usage by reading the output of the `df -hT` command, e
 
 companies use email servers to send email alerts ,like tcs uses tcs email server @tcs.com rather than @gmail
 
-we use POSFIX to hit gmail 
+we use POSFIX to hit gmail
 
 cyrus-sasl-plain - for auth
 
@@ -746,12 +741,120 @@ from address - since we are sending without login in server so i use pramoddev46
 
 generate app password from your gmail - google > security> and copy the password (remove spaces)
 
+# Sending email alerts
 
+## Setup Process
 
+1. Switch to root:
 
+   ```
+   sudo su -
+   ```
+2. Install required packages:
 
+   ```
+   yum -y install postfix cyrus-sasl-plain mailx
+   ```
+3. Restart and enable Postfix:
 
+   ```
+   systemctl restart postfix
+   systemctl enable postfix
+   ```
+4. Configure Postfix:
+   Edit `/etc/postfix/main.cf` and append:
 
+   ```
+   relayhost = [smtp.gmail.com]:587
+   smtp_use_tls = yes
+   smtp_sasl_auth_enable = yes
+   smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+   smtp_sasl_security_options = noanonymous
+   smtp_sasl_tls_security_options = noanonymous
+   ```
+5. Set up SASL credentials:
+   Create and edit `/etc/postfix/sasl_passwd`:
+
+   ```
+   [smtp.gmail.com]:587 xyz:AppPassword
+   ```
+
+   Note: Replace 'xyz' with your Gmail username and 'AppPassword' with your Google App Password.
+6. Create Postfix lookup table:
+
+   ```
+   postmap /etc/postfix/sasl_passwd
+   ```
+7. Send a test email:
+
+   ```
+   echo "This is a test mail & Date $(date)" | mail -s "message" ToEmail@domain.com
+   ```
+
+## Real-World Scenarios of monitoring
+
+1. **Automated System Alerts**
+
+   - Use case: Send alerts when system resources (CPU, memory, disk) exceed thresholds.
+   - Implementation:
+     ```bash
+     #!/bin/bash
+     THRESHOLD=90
+     CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | awk '{print $2 + $4}')
+     if (( $(echo "$CPU_USAGE > $THRESHOLD" | bc -l) )); then
+         echo "High CPU usage: $CPU_USAGE%" | mail -s "CPU Alert" admin@example.com
+     fi
+     ```
+2. **Backup Job Notifications**
+
+   - Use case: Notify administrators about the success or failure of backup jobs.
+   - Implementation:
+     ```bash
+     #!/bin/bash
+     backup_result=$(perform_backup_command)
+     if [ $? -eq 0 ]; then
+         echo "Backup completed successfully" | mail -s "Backup Success" admin@example.com
+     else
+         echo "Backup failed. Error: $backup_result" | mail -s "Backup Failure" admin@example.com
+     fi
+     ```
+3. **Log File Monitoring**
+
+   - Use case: Send daily summaries of important log entries.
+   - Implementation:
+     ```bash
+     #!/bin/bash
+     log_summary=$(grep ERROR /var/log/application.log | tail -n 50)
+     echo "$log_summary" | mail -s "Daily Log Summary" devops@example.com
+     ```
+4. **Deployment Notifications**
+
+   - Use case: Notify team members about successful deployments.
+   - Implementation:
+     ```bash
+     #!/bin/bash
+     deploy_result=$(run_deployment_script)
+     if [ $? -eq 0 ]; then
+         echo "New version deployed successfully" | mail -s "Deployment Success" team@example.com
+     else
+         echo "Deployment failed. Rolling back." | mail -s "Deployment Failure" team@example.com
+     fi
+     ```
+5. **Security Breach Alerts**
+
+   - Use case: Immediate notification on detected security breaches.
+   - Implementation:
+     ```bash
+     #!/bin/bash
+     if grep -q "Failed password" /var/log/secure; then
+         last_attempts=$(grep "Failed password" /var/log/secure | tail -n 5)
+         echo "Multiple failed login attempts detected: $last_attempts" | mail -s "Security Alert" security@example.com
+     fi
+     ```
+
+Remember to replace email addresses and customize scripts according to your specific needs and environment.
+
+Important shell programs to learn
 
 
 ### 10. **Example Script for Deleting or Archiving Logs**
@@ -795,7 +898,342 @@ else
 fi
 ```
 
+
+
 ---
+
+## 1. **How to Take Arguments in a Shell Script with Options**
+
+You can pass arguments and options to a shell script using positional parameters (`$1`, `$2`, etc.) and options like `-a`, `-b`, etc. You can handle these with `getopts`.
+
+### Example Program:
+
+```bash
+#!/bin/bash
+
+# A script to demonstrate argument handling with options
+
+# Using getopts to handle options
+while getopts ":a:b:c:" opt; do
+  case ${opt} in
+    a ) # Option -a
+      argA=$OPTARG
+      ;;
+    b ) # Option -b
+      argB=$OPTARG
+      ;;
+    c ) # Option -c
+      argC=$OPTARG
+      ;;
+    \? ) echo "Invalid option: -$OPTARG" ;; # Handle invalid options
+    :  ) echo "Option -$OPTARG requires an argument." ;; # Handle missing arguments
+  esac
+done
+
+# Display the passed arguments
+echo "Option a: $argA"
+echo "Option b: $argB"
+echo "Option c: $argC"
+```
+
+**How to run**:
+
+```bash
+./script.sh -a 10 -b 20 -c 30
+```
+
+---
+
+## 2. **Counting Words in a Shell Script**
+
+A shell script can easily count words in a file using commands like `wc`.
+
+### Example Program:
+
+```bash
+#!/bin/bash
+
+# A script to count words in a file
+if [ $# -lt 1 ]; then
+  echo "Usage: $0 <file>"
+  exit 1
+fi
+
+file=$1
+
+if [ -f "$file" ]; then
+  word_count=$(wc -w < "$file")
+  echo "The file '$file' has $word_count words."
+else
+  echo "File not found: $file"
+  exit 1
+fi
+```
+
+**How to run**:
+
+```bash
+./script.sh filename.txt
+```
+
+---
+
+## 3. **Rows to Columns and Columns to Rows Conversion (Transpose)**
+
+You can transpose rows to columns (and vice versa) using `awk`.
+
+### Example Program:
+
+```bash
+#!/bin/bash
+
+# A script to transpose rows and columns in a file
+if [ $# -lt 1 ]; then
+  echo "Usage: $0 <file>"
+  exit 1
+fi
+
+file=$1
+
+awk '
+{
+  for (i=1; i<=NF; i++) {
+    a[NR,i] = $i
+  }
+}
+NF>p { p = NF }
+END {
+  for(j=1; j<=p; j++) {
+    str=a[1,j]
+    for(i=2; i<=NR; i++) {
+      str=str" "a[i,j]
+    }
+    print str
+  }
+}' $file
+```
+
+**How to run**:
+
+```bash
+./script.sh input.txt
+```
+
+---
+
+## 4. **Counting Words Using Shell Script**
+
+This script counts occurrences of each word in a file.
+
+### Example Program:
+
+```bash
+#!/bin/bash
+
+# A script to count occurrences of words in a file
+if [ $# -lt 1 ]; then
+  echo "Usage: $0 <file>"
+  exit 1
+fi
+
+file=$1
+
+if [ -f "$file" ]; then
+  # Convert to lowercase, remove punctuation, and count each word
+  tr -c '[:alnum:]' '[\n*]' < "$file" | tr '[:upper:]' '[:lower:]' | sort | uniq -c | sort -nr
+else
+  echo "File not found: $file"
+  exit 1
+fi
+```
+
+**How to run**:
+
+```bash
+./script.sh filename.txt
+```
+
+---
+
+## 5. **Troubleshooting a Linux Instance**
+
+- **Commands to start troubleshooting**:
+  - Check system load: `top`, `htop`, or `uptime`.
+  - Check disk space: `df -h`.
+  - Check network connectivity: `ping`, `traceroute`.
+  - Analyze logs: `dmesg`, `/var/log/syslog`, or `/var/log/messages`.
+
+### Basic Troubleshooting Script:
+
+```bash
+#!/bin/bash
+
+# A script to gather basic troubleshooting information
+
+echo "System Load:"
+uptime
+
+echo "Disk Space Usage:"
+df -h
+
+echo "Memory Usage:"
+free -m
+
+echo "Network Information:"
+ifconfig
+
+echo "Active Connections:"
+netstat -ntlp
+
+echo "Logs:"
+tail -n 20 /var/log/syslog
+```
+
+---
+
+## 6. **Nohup in Unix**
+
+`nohup` allows you to run a process in the background that persists even after logging out.
+
+### Example:
+
+```bash
+nohup ./script.sh > output.log 2>&1 &
+```
+
+- This runs `script.sh` in the background and redirects output to `output.log`.
+
+---
+
+## 7. **What is Inode?**
+
+An **inode** is a data structure in a Unix/Linux filesystem that stores information about a file, excluding its name and actual data. You can find the inode of a file with the command:
+
+```bash
+ls -i filename
+```
+
+---
+
+## 8. **Transpose File**
+
+See **Rows to Columns** conversion script above.
+
+---
+
+## 9. **Backup Using Shell Script**
+
+A basic backup script using `tar`:
+
+### Example Program:
+
+```bash
+#!/bin/bash
+
+# A script to backup a directory
+
+backup_dir="/path/to/backup"
+destination_dir="/path/to/destination"
+timestamp=$(date +"%Y%m%d_%H%M%S")
+backup_file="backup_$timestamp.tar.gz"
+
+tar -czf "$destination_dir/$backup_file" "$backup_dir"
+
+echo "Backup completed: $destination_dir/$backup_file"
+```
+
+**How to run**:
+
+```bash
+./backup.sh
+```
+
+---
+
+## 10. **Shell Script to Monitor CPU Usage**
+
+You can use `top` or `mpstat` to monitor CPU usage.
+
+### Example Program:
+
+```bash
+#!/bin/bash
+
+# A script to monitor CPU usage every 5 seconds
+
+while true; do
+  echo "CPU Usage at $(date):"
+  mpstat 1 1 | awk '/Average/ {print "CPU Usage: " 100 - $12"%"}'
+  sleep 5
+done
+```
+
+---
+
+## 11. **Find and Replace String**
+
+This script replaces a string in a file using `sed`.
+
+### Example Program:
+
+```bash
+#!/bin/bash
+
+# A script to find and replace a string in a file
+if [ $# -lt 3 ]; then
+  echo "Usage: $0 <file> <search_string> <replace_string>"
+  exit 1
+fi
+
+file=$1
+search_string=$2
+replace_string=$3
+
+sed -i "s/$search_string/$replace_string/g" $file
+echo "Replaced all occurrences of '$search_string' with '$replace_string' in $file."
+```
+
+**How to run**:
+
+```bash
+./script.sh filename.txt old_string new_string
+```
+
+---
+
+## 12. **Delete or Archive Old Log Files**
+
+This script archives or deletes log files older than a specified number of days.
+
+### Example Program:
+
+```bash
+#!/bin/bash
+
+# A script to archive or delete old log files
+log_dir="/var/log/myapp"
+archive_dir="/var/log/myapp/archive"
+days_old=30
+
+# Archive files older than 30 days
+find "$log_dir" -type f -name "*.log" -mtime +$days_old -exec mv {} "$archive_dir" \;
+
+# Optional: Delete files older than 30 days
+# find "$archive_dir" -type f -name "*.log" -mtime +$days_old -delete
+
+echo "Old log files archived."
+```
+
+---
+
+By practicing with these scripts and concepts, you will be well-prepared for shell scripting interviews and practical tasks. Each example demonstrates essential shell scripting features. Let me know if you'd like more details on any specific topic!
+
+
+---
+
+For email you must alwasy call it using another script because often mailing process is griven by another team and devops team will create a script and call it in multiple scripts.
+template practice of email is incomplete, test email is completed
+
 
 ### 11. **Q&A for Quick Revision**
 
@@ -834,5 +1272,3 @@ fi
   ```
 
 ---
-
-These notes provide a comprehensive overview of shell scripting concepts, real-time examples, and Q&A for quick revision. The real-world examples show how you can automate tasks such as log management and disk monitoring.
